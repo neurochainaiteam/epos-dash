@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NeuroChain Ai">
+  <defs>
+    <linearGradient id="g" x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#05D7EE"/>
+      <stop offset="1" stop-color="#EF36F5"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#1D014D"/>
+  <path d="M32 14c-4-2.8-10-2.3-12.9 1.5-2.7.2-5 2.1-5.6 4.8-2.5 1.1-4 3.8-3.3 6.4-1.8 2-2 5-.5 7.3.1 3 2.4 5.7 5.5 6.2 1.3 3.1 4.5 4.9 7.8 4.3 2.2 2.3 5.8 2.7 8.3.9V14Z" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+  <path d="M32 14c4-2.8 10-2.3 12.9 1.5 2.7.2 5 2.1 5.6 4.8 2.5 1.1 4 3.8 3.3 6.4 1.8 2 2 5 .5 7.3-.1 3-2.4 5.7-5.5 6.2-1.3 3.1-4.5 4.9-7.8 4.3-2.2 2.3-5.8 2.7-8.3.9V14Z" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+  <path d="M32 14v36" stroke="url(#g)" stroke-width="2.2" stroke-linecap="round"/>
+  <g fill="#05D7EE"><circle cx="21" cy="30" r="2.2"/><circle cx="25" cy="23" r="2.2"/></g>
+  <g fill="#EF36F5"><circle cx="41" cy="27" r="2.2"/><circle cx="42" cy="40" r="2.2"/></g>
+</svg>

@@ -1,0 +1,138 @@
+/* Headings: Raleway · Body: Aeonik (not bundled) → Inter fallback */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   NeuroChain Ai — dark, futuristic theme.
+   Brand palette (single source of truth, mirrored in src/config/theme.js):
+     Charcoal         #3A3A3A  hsl(0 0% 23%)
+     Soft Silver      #E1E1E1  hsl(0 0% 88%)
+     Neon Cyan        #05D7EE  hsl(186 96% 48%)
+     Electric Magenta #EF36F5  hsl(298 90% 59%)
+     Deep Violet      #1D014D  hsl(262 97% 15%)
+   Signature gradient: cyan → magenta.
+--------------------------------------------------------------------------- */
+
+@layer base {
+  :root {
+    /* Surfaces — deep violet / charcoal */
+    --background: 263 74% 6%;
+    --foreground: 0 0% 88%;
+
+    --card: 260 42% 11%;
+    --card-foreground: 0 0% 88%;
+
+    /* Neon cyan is the primary action colour */
+    --primary: 186 96% 48%;
+    --primary-foreground: 263 74% 7%;
+
+    /* Violet surface for secondary controls */
+    --secondary: 260 34% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 260 28% 15%;
+    --muted-foreground: 255 14% 64%;
+
+    /* Cyan-tinted highlight surface */
+    --accent: 188 80% 16%;
+    --accent-foreground: 186 90% 72%;
+
+    /* Critical = red · warning = brand magenta */
+    --destructive: 350 84% 62%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 76% 45%;
+    --success-foreground: 263 74% 7%;
+
+    --warning: 298 90% 62%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 260 32% 20%;
+    --input: 260 32% 20%;
+    --ring: 186 96% 48%;
+
+    /* Sidebar sits a touch darker than the canvas */
+    --sidebar: 264 80% 5%;
+    --sidebar-foreground: 255 16% 66%;
+    --sidebar-accent: 186 96% 48%;
+
+    --radius: 0.75rem;
+
+    /* Brand stops for gradients (also in theme.js) */
+    --brand-cyan: 186 96% 48%;
+    --brand-magenta: 298 90% 59%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Subtle futuristic glow: cyan top-right, magenta bottom-left, over deep violet */
+    background-image:
+      radial-gradient(60rem 60rem at 100% -10%, hsl(186 96% 48% / 0.07), transparent 60%),
+      radial-gradient(55rem 55rem at -10% 110%, hsl(298 90% 59% / 0.08), transparent 60%);
+    background-attachment: fixed;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: theme('fontFamily.display');
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  /* cyan → magenta text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, hsl(var(--brand-cyan)), hsl(var(--brand-magenta)));
+  }
+
+  /* cyan → magenta fill (buttons, active nav, accents) */
+  .bg-brand-gradient {
+    background-image: linear-gradient(90deg, hsl(var(--brand-cyan)), hsl(var(--brand-magenta)));
+  }
+
+  /* active nav item — faint cyan → magenta wash with a neon left edge */
+  .nav-active {
+    background-image: linear-gradient(90deg, hsl(var(--brand-cyan) / 0.22), hsl(var(--brand-magenta) / 0.16));
+    box-shadow: inset 2px 0 0 0 hsl(var(--brand-cyan));
+  }
+
+  /* Recommendation card title — brand Electric Magenta (#EF36F5) per the brand
+     guidelines. Card icons stay Neon Cyan (#05D7EE); all other card text is
+     white / soft silver. A soft magenta glow keeps it legible on the dark canvas. */
+  .rec-title {
+    color: #EF36F5;
+    text-shadow: 0 0 18px rgba(239, 54, 245, 0.4);
+  }
+
+  /* neon glow shadows */
+  .shadow-glow-cyan {
+    box-shadow: 0 0 0 1px hsl(186 96% 48% / 0.3), 0 8px 30px -8px hsl(186 96% 48% / 0.45);
+  }
+  .shadow-glow-magenta {
+    box-shadow: 0 0 0 1px hsl(298 90% 59% / 0.3), 0 8px 30px -8px hsl(298 90% 59% / 0.45);
+  }
+}
+
+/* Thin, subtle scrollbars (dark) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(260 30% 28%);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(186 60% 40%);
+}
