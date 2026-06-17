@@ -33,8 +33,8 @@ const CALLOUT_TONE = {
 function StatCard({ icon: Icon, label, value, sub }) {
   return (
     <Card className="p-4">
-      <div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Icon className="h-3.5 w-3.5 text-brand-cyan" />{label}</div>
-      <div className="mt-1 text-xl font-bold tabular-nums text-[#E1E1E1]">{value}</div>
+      <div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Icon className="h-3.5 w-3.5 text-brand-cyanText" />{label}</div>
+      <div className="mt-1 text-xl font-bold tabular-nums text-foreground">{value}</div>
       {sub && <div className="mt-0.5 text-xs text-muted-foreground">{sub}</div>}
     </Card>
   )
@@ -111,26 +111,24 @@ export default function Forecasting() {
 
       <div className="space-y-6 p-5 sm:p-8">
         <Card className="relative overflow-hidden border-brand-cyan/20 p-5 sm:p-6">
-          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand-magenta/10 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-20 left-24 h-48 w-48 rounded-full bg-brand-cyan/10 blur-3xl" />
           <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow-cyan">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gradient text-primary-foreground shadow-glow-cyan">
                 <Sparkles className="h-6 w-6" />
               </span>
               <div>
                 <div className="text-xs text-muted-foreground">Forecast for {locationName(locationId)} · next 7 days</div>
-                <div className="text-xl font-bold text-[#E1E1E1]">
-                  <span className="text-brand-cyan">{fc.summary.next7Orders.toLocaleString()} orders</span>
+                <div className="text-xl font-bold text-foreground">
+                  <span className="text-brand-cyanText">{fc.summary.next7Orders.toLocaleString()} orders</span>
                   <span className="text-muted-foreground"> · </span>
-                  <span className="rec-title">{gbp(fc.summary.next7Revenue)}</span>
+                  <span className="text-foreground">{gbp(fc.summary.next7Revenue)}</span>
                   <span className="text-muted-foreground"> projected</span>
                 </div>
               </div>
             </div>
             <div className="text-sm text-muted-foreground">
-              Busiest <span className="font-semibold text-[#E1E1E1]">{fc.summary.busiest?.dow}</span> ·
-              quietest <span className="font-semibold text-[#E1E1E1]">{fc.summary.quietest?.dow}</span>
+              Busiest <span className="font-semibold text-foreground">{fc.summary.busiest?.dow}</span> ·
+              quietest <span className="font-semibold text-foreground">{fc.summary.quietest?.dow}</span>
             </div>
           </div>
         </Card>
@@ -150,11 +148,11 @@ export default function Forecasting() {
               return (
                 <Card key={c.id} className={cn('flex items-start gap-3 p-4', CALLOUT_TONE[c.type])}>
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-cyan/10 ring-1 ring-brand-cyan/25">
-                    <Icon className="h-5 w-5 text-brand-cyan" />
+                    <Icon className="h-5 w-5 text-brand-cyanText" />
                   </span>
                   <div>
-                    <div className="text-sm font-bold text-[#EF36F5]">{c.title}</div>
-                    <div className="mt-1 text-sm leading-relaxed text-[#E1E1E1]/85">{c.detail}</div>
+                    <div className="text-sm font-bold text-warning">{c.title}</div>
+                    <div className="mt-1 text-sm leading-relaxed text-foreground/80">{c.detail}</div>
                   </div>
                 </Card>
               )
@@ -165,7 +163,7 @@ export default function Forecasting() {
         <Card className="p-5 sm:p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <h2 className="text-base font-bold text-[#E1E1E1]">Demand forecast · next 14 days</h2>
+              <h2 className="text-base font-bold text-foreground">Demand forecast · next 14 days</h2>
               <p className="text-xs text-muted-foreground">Predicted revenue per day — busy days highlighted, weekends marked</p>
             </div>
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
@@ -190,9 +188,9 @@ export default function Forecasting() {
                     style={{ height: h }}
                     title={`${d.date}: ~${d.predictedOrders} orders · ${gbp(d.predictedRevenue)} (${d.deltaPct >= 0 ? '+' : ''}${d.deltaPct}%)`}
                   />
-                  <W className={cn('h-3.5 w-3.5', d.weather.icon === 'rain' ? 'text-brand-cyan' : 'text-muted-foreground')} />
+                  <W className={cn('h-3.5 w-3.5', d.weather.icon === 'rain' ? 'text-brand-cyanText' : 'text-muted-foreground')} />
                   <div className="text-center leading-tight">
-                    <div className="text-[10px] font-semibold text-[#E1E1E1]">{d.dow}</div>
+                    <div className="text-[10px] font-semibold text-foreground">{d.dow}</div>
                     <div className="text-[9px] text-muted-foreground">{d.date.split(' ')[1]}</div>
                   </div>
                 </div>
@@ -204,24 +202,24 @@ export default function Forecasting() {
         <div className="grid gap-4 lg:grid-cols-2">
           <Card className="p-5">
             <div className="flex items-center gap-2">
-              <PackageX className="h-4 w-4 text-brand-cyan" />
-              <h2 className="text-base font-bold text-[#E1E1E1]">Inventory forecast</h2>
+              <PackageX className="h-4 w-4 text-brand-cyanText" />
+              <h2 className="text-base font-bold text-foreground">Inventory forecast</h2>
             </div>
             <p className="mt-1 text-xs text-muted-foreground">Predicted usage & run-out dates for the items running down fastest</p>
             <div className="mt-4 space-y-2">
               {runOutSoon.map((it) => (
                 <div key={it.name} className="flex items-center justify-between gap-3 rounded-lg border border-border/60 bg-background/40 p-3">
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-semibold text-[#E1E1E1]">{it.name}</div>
+                    <div className="truncate text-sm font-semibold text-foreground">{it.name}</div>
                     <div className="text-xs text-muted-foreground">
                       {it.inStock} {it.unit} left · ~{it.dailyUsage}/day · {it.supplier}
                     </div>
                   </div>
                   <div className="shrink-0 text-right">
-                    <div className={cn('text-sm font-semibold', it.daysLeft <= 3 ? 'text-[#EF36F5]' : 'text-[#E1E1E1]')}>
+                    <div className={cn('text-sm font-semibold', it.daysLeft <= 3 ? 'text-warning' : 'text-foreground')}>
                       {it.runOutDate ? `Out by ${it.runOutDate.split(' ').slice(1).join(' ')}` : '> 2 weeks'}
                     </div>
-                    <div className="text-xs text-brand-cyan">Order ~{it.suggestedQty} {it.unit}</div>
+                    <div className="text-xs text-brand-cyanText">Order ~{it.suggestedQty} {it.unit}</div>
                   </div>
                 </div>
               ))}
@@ -231,22 +229,22 @@ export default function Forecasting() {
 
           <Card className="p-5">
             <div className="flex items-center gap-2">
-              <Users2 className="h-4 w-4 text-brand-cyan" />
-              <h2 className="text-base font-bold text-[#E1E1E1]">Staffing suggestions</h2>
+              <Users2 className="h-4 w-4 text-brand-cyanText" />
+              <h2 className="text-base font-bold text-foreground">Staffing suggestions</h2>
             </div>
             <p className="mt-1 text-xs text-muted-foreground">Recommended team per day to meet demand and hold labour ≤ {fc.summary.labourTarget}%</p>
             <div className="mt-4 space-y-1.5">
               {fc.staffing.map((s) => (
                 <div key={s.date} className="flex items-center gap-3 rounded-lg px-2 py-2 hover:bg-muted/40">
                   <div className="w-24 shrink-0">
-                    <div className="text-sm font-semibold text-[#E1E1E1]">{s.dow}</div>
+                    <div className="text-sm font-semibold text-foreground">{s.dow}</div>
                     <div className="text-[10px] text-muted-foreground">{s.date.split(' ').slice(1).join(' ')}</div>
                   </div>
                   <div className="flex flex-1 items-center gap-1">
                     {Array.from({ length: s.recommendedStaff }).map((_, idx) => (
                       <span key={idx} className="h-5 w-2 rounded-sm bg-brand-gradient" />
                     ))}
-                    <span className="ml-2 text-sm font-semibold tabular-nums text-[#E1E1E1]">{s.recommendedStaff}</span>
+                    <span className="ml-2 text-sm font-semibold tabular-nums text-foreground">{s.recommendedStaff}</span>
                     <span className="text-xs text-muted-foreground">staff · ~{s.predictedOrders} orders</span>
                   </div>
                   <Badge variant={s.status === 'high' ? 'warning' : 'success'}>{s.labourPct}% labour</Badge>
@@ -261,10 +259,10 @@ export default function Forecasting() {
           if (!rain) return null
           return (
             <Card className="flex items-start gap-3 border-brand-cyan/25 bg-brand-cyan/5 p-4">
-              <CloudRain className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyan" />
+              <CloudRain className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyanText" />
               <div className="text-sm">
-                <span className="font-semibold text-[#E1E1E1]">Seasonal factor — {rain.dow} {rain.date.split(' ').slice(1).join(' ')}:</span>{' '}
-                <span className="text-[#E1E1E1]/85">{rain.note}. We've already factored this into the demand and staffing figures above.</span>
+                <span className="font-semibold text-foreground">Seasonal factor — {rain.dow} {rain.date.split(' ').slice(1).join(' ')}:</span>{' '}
+                <span className="text-foreground/80">{rain.note}. We've already factored this into the demand and staffing figures above.</span>
               </div>
             </Card>
           )

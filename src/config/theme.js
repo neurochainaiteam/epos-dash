@@ -20,9 +20,16 @@ export const GRADIENT = [BRAND.cyan, BRAND.magenta]
 // Colours used inside charts (recharts can't reach CSS vars).
 export const CHART = {
   cyan: BRAND.cyan,
-  cyanSoft: 'hsl(186 70% 30%)',
+  // Light cyan tint for de-emphasised bars/points within a single-series
+  // chart (e.g. non-peak hours) — stays in the cyan family, just lighter.
+  cyanSoft: 'hsl(186 70% 85%)',
+  // Neutral grey for a chart's secondary data series. Per the redesign, a
+  // second series only gets magenta when it specifically represents
+  // something alert-worthy — otherwise it should read as neutral, not as a
+  // second "brand" colour competing with cyan.
+  secondary: '#9CA3AF',
   magenta: BRAND.magenta,
-  grid: 'hsl(260 30% 20%)',
-  axis: 'hsl(255 14% 60%)',
-  cursor: 'hsl(186 80% 50% / 0.10)',
+  grid: '#E5E7EB',
+  axis: '#6B7280',
+  cursor: 'hsl(186 80% 50% / 0.12)',
 }

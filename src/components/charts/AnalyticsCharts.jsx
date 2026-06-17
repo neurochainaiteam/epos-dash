@@ -90,12 +90,12 @@ export default function AnalyticsCharts({ byHour, byDay, bestSellers, labourTren
                 </Box>
               ) : null} />
               <Line type="monotone" dataKey="labourPct" stroke={TEAL} strokeWidth={2.5} dot={{ r: 3 }} />
-              <Line type="monotone" dataKey="foodPct" stroke={CHART.magenta} strokeWidth={2.5} dot={{ r: 3 }} />
+              <Line type="monotone" dataKey="foodPct" stroke={CHART.secondary} strokeWidth={2.5} dot={{ r: 3 }} />
             </LineChart>
           </ResponsiveContainer>
           <div className="mt-2 flex items-center gap-4 text-xs text-muted-foreground">
             <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full" style={{ background: TEAL }} /> Labour %</span>
-            <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full" style={{ background: CHART.magenta }} /> Food cost %</span>
+            <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full" style={{ background: CHART.secondary }} /> Food cost %</span>
           </div>
         </CardContent>
       </Card>

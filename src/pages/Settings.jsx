@@ -67,7 +67,7 @@ export default function Settings() {
                 <Badge variant={it.connected ? 'success' : 'secondary'}>{it.connected ? 'Connected' : 'Connect'}</Badge>
               </div>
             ))}
-            <Link to="/integrations" className="flex items-center justify-center gap-1.5 rounded-lg border border-brand-cyan/20 bg-brand-cyan/5 p-2.5 text-sm font-medium text-brand-cyan transition-colors hover:bg-brand-cyan/10">
+            <Link to="/integrations" className="flex items-center justify-center gap-1.5 rounded-lg border border-brand-cyan/20 bg-brand-cyan/5 p-2.5 text-sm font-medium text-brand-cyanText transition-colors hover:bg-brand-cyan/10">
               Manage delivery platforms <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </CardContent>

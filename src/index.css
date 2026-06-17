@@ -6,64 +6,72 @@
 @tailwind utilities;
 
 /* ---------------------------------------------------------------------------
-   NeuroChain Ai — dark, futuristic theme.
+   NeuroChain Ai — light, clean theme.
    Brand palette (single source of truth, mirrored in src/config/theme.js):
      Charcoal         #3A3A3A  hsl(0 0% 23%)
      Soft Silver      #E1E1E1  hsl(0 0% 88%)
      Neon Cyan        #05D7EE  hsl(186 96% 48%)
      Electric Magenta #EF36F5  hsl(298 90% 59%)
      Deep Violet      #1D014D  hsl(262 97% 15%)
-   Signature gradient: cyan → magenta.
+   Neon Cyan and Electric Magenta are too light to pass WCAG AA as small text on
+   white (≈1.75:1 and ≈3.2:1 respectively). Both literal hexes are kept for
+   fills/icons/borders/chart strokes; --cyan-text is a darkened, same-hue
+   stand-in used anywhere cyan needs to be read as text. --warning already
+   carries the magenta hue and is darkened the same way, so it doubles as the
+   accessible "alert" text/icon colour (see src/config/theme.js CHART note).
 --------------------------------------------------------------------------- */
 
 @layer base {
   :root {
-    /* Surfaces — deep violet / charcoal */
-    --background: 263 74% 6%;
-    --foreground: 0 0% 88%;
+    /* Surfaces — light neutral grey canvas, white cards */
+    --background: 220 13% 95%;
+    --foreground: 0 0% 23%;
 
-    --card: 260 42% 11%;
-    --card-foreground: 0 0% 88%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 23%;
 
-    /* Neon cyan is the primary action colour */
+    /* Neon cyan is the primary action colour (fills only — see --cyan-text) */
     --primary: 186 96% 48%;
-    --primary-foreground: 263 74% 7%;
+    --primary-foreground: 0 0% 23%;
 
-    /* Violet surface for secondary controls */
-    --secondary: 260 34% 18%;
-    --secondary-foreground: 0 0% 90%;
+    /* Light grey surface for secondary controls */
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 0 0% 23%;
 
-    --muted: 260 28% 15%;
-    --muted-foreground: 255 14% 64%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
     /* Cyan-tinted highlight surface */
-    --accent: 188 80% 16%;
-    --accent-foreground: 186 90% 72%;
+    --accent: 186 90% 95%;
+    --accent-foreground: 186 90% 28%;
 
-    /* Critical = red · warning = brand magenta */
-    --destructive: 350 84% 62%;
+    /* Critical = red · warning = brand magenta (darkened for AA on white) */
+    --destructive: 350 84% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 152 76% 45%;
-    --success-foreground: 263 74% 7%;
+    --success: 152 76% 28%;
+    --success-foreground: 0 0% 100%;
 
-    --warning: 298 90% 62%;
+    --warning: 298 90% 38%;
     --warning-foreground: 0 0% 100%;
 
-    --border: 260 32% 20%;
-    --input: 260 32% 20%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
     --ring: 186 96% 48%;
 
-    /* Sidebar sits a touch darker than the canvas */
-    --sidebar: 264 80% 5%;
+    /* Sidebar — Deep Violet, exact brand hex; text stays light */
+    --sidebar: 262 97% 15%;
     --sidebar-foreground: 255 16% 66%;
     --sidebar-accent: 186 96% 48%;
 
     --radius: 0.75rem;
 
-    /* Brand stops for gradients (also in theme.js) */
+    /* Brand stops (literal hexes, also in theme.js) — fills/icons/borders only */
     --brand-cyan: 186 96% 48%;
     --brand-magenta: 298 90% 59%;
+
+    /* AA-accessible, same-hue stand-in for cyan when it's read as text */
+    --cyan-text: 186 90% 28%;
   }
 
   * {
@@ -72,11 +80,6 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    /* Subtle futuristic glow: cyan top-right, magenta bottom-left, over deep violet */
-    background-image:
-      radial-gradient(60rem 60rem at 100% -10%, hsl(186 96% 48% / 0.07), transparent 60%),
-      radial-gradient(55rem 55rem at -10% 110%, hsl(298 90% 59% / 0.08), transparent 60%);
-    background-attachment: fixed;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
@@ -87,41 +90,42 @@
 }
 
 @layer components {
-  /* cyan → magenta text */
+  /* cyan → magenta text — brand wordmark only (sidebar / sign-in, dark surfaces) */
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(90deg, hsl(var(--brand-cyan)), hsl(var(--brand-magenta)));
   }
 
-  /* cyan → magenta fill (buttons, active nav, accents) */
+  /* flat cyan fill (buttons, active nav, badges, accents) — was a cyan→magenta
+     gradient; removed per the light-theme redesign in favour of a single solid
+     brand colour. */
   .bg-brand-gradient {
-    background-image: linear-gradient(90deg, hsl(var(--brand-cyan)), hsl(var(--brand-magenta)));
+    background-color: hsl(var(--brand-cyan));
   }
 
-  /* active nav item — faint cyan → magenta wash with a neon left edge */
+  /* active nav item — flat cyan wash with a neon left edge */
   .nav-active {
-    background-image: linear-gradient(90deg, hsl(var(--brand-cyan) / 0.22), hsl(var(--brand-magenta) / 0.16));
+    background-color: hsl(var(--brand-cyan) / 0.18);
     box-shadow: inset 2px 0 0 0 hsl(var(--brand-cyan));
   }
 
-  /* Recommendation card title — brand Electric Magenta (#EF36F5) per the brand
-     guidelines. Card icons stay Neon Cyan (#05D7EE); all other card text is
-     white / soft silver. A soft magenta glow keeps it legible on the dark canvas. */
+  /* Recommendation card title — alert/Electric-Magenta hue (darkened --warning
+     for AA contrast on white). No glow: that was a dark-canvas legibility aid,
+     not needed on a white card. */
   .rec-title {
-    color: #EF36F5;
-    text-shadow: 0 0 18px rgba(239, 54, 245, 0.4);
+    color: hsl(var(--warning));
   }
 
-  /* neon glow shadows */
+  /* glow shadows (decorative emphasis, e.g. selected card) */
   .shadow-glow-cyan {
-    box-shadow: 0 0 0 1px hsl(186 96% 48% / 0.3), 0 8px 30px -8px hsl(186 96% 48% / 0.45);
+    box-shadow: 0 0 0 1px hsl(186 96% 48% / 0.35), 0 8px 30px -8px hsl(186 96% 48% / 0.35);
   }
   .shadow-glow-magenta {
-    box-shadow: 0 0 0 1px hsl(298 90% 59% / 0.3), 0 8px 30px -8px hsl(298 90% 59% / 0.45);
+    box-shadow: 0 0 0 1px hsl(298 90% 59% / 0.35), 0 8px 30px -8px hsl(298 90% 59% / 0.35);
   }
 }
 
-/* Thin, subtle scrollbars (dark) */
+/* Thin, subtle scrollbars (light) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -130,9 +134,9 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(260 30% 28%);
+  background: hsl(220 13% 82%);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(186 60% 40%);
+  background: hsl(186 70% 55%);
 }

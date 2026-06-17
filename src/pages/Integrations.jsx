@@ -101,7 +101,7 @@ export default function Integrations() {
               {allChannels.map((c) => (
                 <div key={c.channel} className="rounded-lg border border-border/60 bg-background/40 p-3">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="font-medium text-[#E1E1E1]">{c.channel}</span>
+                    <span className="font-medium text-foreground">{c.channel}</span>
                     <span className="tabular-nums text-muted-foreground">{c.count}</span>
                   </div>
                   <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted">
@@ -113,7 +113,7 @@ export default function Integrations() {
               {allChannels.length === 0 && <p className="text-sm text-muted-foreground">No orders today yet.</p>}
             </div>
           )}
-          <Link to="/orders" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-cyan hover:underline">
+          <Link to="/orders" className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-cyanText hover:underline">
             View tagged orders in the live feed →
           </Link>
         </Card>
@@ -154,7 +154,7 @@ export default function Integrations() {
                       <div className="flex items-center gap-3">
                         <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted text-muted-foreground"><Store className="h-4 w-4" /></span>
                         <div>
-                          <div className="text-sm font-medium text-[#E1E1E1]">{a.accountName}</div>
+                          <div className="text-sm font-medium text-foreground">{a.accountName}</div>
                           <div className="text-xs text-muted-foreground">Store {a.storeId}{locationId === 'all' && a.location ? ` · ${a.location}` : ''} · synced {a.lastSync}</div>
                         </div>
                       </div>

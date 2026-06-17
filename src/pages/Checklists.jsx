@@ -80,7 +80,7 @@ export default function Checklists() {
 
         {/* Schedule / recurrence */}
         <Card className="p-5">
-          <CardTitle className="flex items-center gap-2 text-base"><Repeat className="h-4 w-4 text-brand-cyan" /> Schedule & reminders</CardTitle>
+          <CardTitle className="flex items-center gap-2 text-base"><Repeat className="h-4 w-4 text-brand-cyanText" /> Schedule & reminders</CardTitle>
           <p className="mt-1 text-xs text-muted-foreground">Set how often each checklist recurs and when the team is reminded.</p>
           {schLoading ? <Skeleton className="mt-4 h-48 w-full" /> : (
             <div className="mt-4 grid gap-3 lg:grid-cols-3">
@@ -89,7 +89,7 @@ export default function Checklists() {
                 return (
                   <div key={s.section} className="rounded-xl border border-border/70 bg-background/40 p-4">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-sm font-bold text-[#E1E1E1]">
+                      <div className="flex items-center gap-2 text-sm font-bold text-foreground">
                         <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent text-accent-foreground"><Icon className="h-3.5 w-3.5" /></span>
                         {s.section}
                       </div>
@@ -170,7 +170,7 @@ export default function Checklists() {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2 text-base">
-              <History className="h-4 w-4 text-brand-cyan" /> Completion history
+              <History className="h-4 w-4 text-brand-cyanText" /> Completion history
               {isDirector && <Badge variant="secondary" className="gap-1"><Building2 className="h-3 w-3" /> All locations</Badge>}
             </CardTitle>
           </CardHeader>
@@ -194,7 +194,7 @@ export default function Checklists() {
                         <td className="py-2.5 text-muted-foreground">{h.date}</td>
                         {locationId === 'all' && <td className="py-2.5 text-muted-foreground">{h.location}</td>}
                         <td className="py-2.5"><Badge variant="secondary">{h.section}</Badge></td>
-                        <td className="py-2.5 font-medium text-[#E1E1E1]">{h.by}</td>
+                        <td className="py-2.5 font-medium text-foreground">{h.by}</td>
                         <td className="py-2.5 tabular-nums text-muted-foreground">{h.at}</td>
                         <td className="py-2.5 text-right">
                           <span className={cn('tabular-nums', h.done === h.total ? 'text-success' : 'text-warning')}>{h.done}/{h.total}</span>

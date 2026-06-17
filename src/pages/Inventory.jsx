@@ -30,7 +30,7 @@ function Modal({ title, onClose, children, wide }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="sticky top-0 z-10 flex items-center justify-between border-b bg-card px-5 py-3.5">
-          <h3 className="text-base font-bold text-[#E1E1E1]">{title}</h3>
+          <h3 className="text-base font-bold text-foreground">{title}</h3>
           <button onClick={onClose} className="rounded-md p-1.5 text-muted-foreground hover:bg-muted/50 hover:text-foreground"><X className="h-5 w-5" /></button>
         </div>
         <div className="p-5">{children}</div>
@@ -94,9 +94,9 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
               <img src={image} alt="Receipt preview" className="max-h-48 rounded-lg" />
             ) : (
               <>
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyan"><ImageIcon className="h-6 w-6" /></span>
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyanText"><ImageIcon className="h-6 w-6" /></span>
                 <div>
-                  <div className="text-sm font-semibold text-[#E1E1E1]">Drop a receipt photo or click to upload</div>
+                  <div className="text-sm font-semibold text-foreground">Drop a receipt photo or click to upload</div>
                   <div className="text-xs text-muted-foreground">JPG/PNG — a supplier invoice or till receipt</div>
                 </div>
               </>
@@ -105,7 +105,7 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
           </label>
 
           <div className="flex items-center justify-between gap-3">
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><Sparkles className="h-3.5 w-3.5 text-brand-cyan" /> OCR engine ready — swap in a real model later</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><Sparkles className="h-3.5 w-3.5 text-brand-cyanText" /> OCR engine ready — swap in a real model later</span>
             <div className="flex gap-2">
               {!image && <Button size="sm" variant="outline" onClick={() => setImage('sample')}>Use sample receipt</Button>}
               <Button size="sm" onClick={runOcr} disabled={scanning}>
@@ -119,7 +119,7 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
         <div className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-brand-cyan/20 bg-brand-cyan/5 p-3">
             <div className="text-sm">
-              <span className="font-semibold text-[#E1E1E1]">{scan.supplier}</span>
+              <span className="font-semibold text-foreground">{scan.supplier}</span>
               <span className="text-muted-foreground"> · {scan.reference} · {scan.dateLabel}</span>
             </div>
             <Badge variant="accent" className="gap-1"><ScanLine className="h-3 w-3" /> {scan.engine}</Badge>
@@ -142,7 +142,7 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
                   const delta = l.oldCost ? Math.round(((l.unitCost - l.oldCost) / l.oldCost) * 100) : 0
                   return (
                     <tr key={idx} className="border-b">
-                      <td className="py-2 pr-2 font-medium text-[#E1E1E1]">{l.name}{l.matched && <Check className="ml-1 inline h-3 w-3 text-success" />}</td>
+                      <td className="py-2 pr-2 font-medium text-foreground">{l.name}{l.matched && <Check className="ml-1 inline h-3 w-3 text-success" />}</td>
                       <td className="py-2 pr-2"><input value={l.qty} onChange={(e) => updateLine(idx, 'qty', e.target.value)} className="h-7 w-14 rounded border bg-background px-1.5 text-sm tabular-nums" /> <span className="text-xs text-muted-foreground">{l.unit}</span></td>
                       <td className="py-2 pr-2"><input value={l.unitCost} onChange={(e) => updateLine(idx, 'unitCost', e.target.value)} className="h-7 w-16 rounded border bg-background px-1.5 text-sm tabular-nums" /></td>
                       <td className="py-2 pr-2">
@@ -161,7 +161,7 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
           </div>
           <div className="flex items-center justify-between border-t pt-3">
             <span className="text-sm text-muted-foreground">Receipt total</span>
-            <span className="text-lg font-bold tabular-nums text-[#E1E1E1]">{gbp(scan.total, { decimals: 2 })}</span>
+            <span className="text-lg font-bold tabular-nums text-foreground">{gbp(scan.total, { decimals: 2 })}</span>
           </div>
           <div className="flex justify-end gap-2">
             <Button size="sm" variant="ghost" onClick={() => setScan(null)}>Re-scan</Button>
@@ -194,7 +194,7 @@ function PriceHistory({ locationId, item, onClose }) {
         {loading ? <Skeleton className="h-40 w-full" /> : (<>
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-2xl font-bold tabular-nums text-[#E1E1E1]">{gbp(last ?? 0, { decimals: 2 })}<span className="text-sm font-normal text-muted-foreground">/{item.unit}</span></div>
+              <div className="text-2xl font-bold tabular-nums text-foreground">{gbp(last ?? 0, { decimals: 2 })}<span className="text-sm font-normal text-muted-foreground">/{item.unit}</span></div>
               <div className="text-xs text-muted-foreground">{item.supplier}</div>
             </div>
             <span className={cn('inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-sm font-semibold', delta > 0 ? 'bg-destructive/15 text-destructive' : 'bg-success/15 text-success')}>
@@ -223,7 +223,7 @@ function PriceHistory({ locationId, item, onClose }) {
                 <span className="text-muted-foreground">{h.period}</span>
                 <div className="flex items-center gap-3">
                   <Badge variant={h.source?.includes('OCR') ? 'accent' : 'secondary'}>{h.source}</Badge>
-                  <span className="font-semibold tabular-nums text-[#E1E1E1]">{gbp(h.cost, { decimals: 2 })}</span>
+                  <span className="font-semibold tabular-nums text-foreground">{gbp(h.cost, { decimals: 2 })}</span>
                 </div>
               </div>
             ))}
@@ -275,9 +275,9 @@ function DraftOrders({ items, onClose }) {
             <Card key={g.supplier} className="overflow-hidden">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b bg-muted/30 px-4 py-3">
                 <div className="flex items-center gap-2.5">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyan"><Truck className="h-4 w-4" /></span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyanText"><Truck className="h-4 w-4" /></span>
                   <div>
-                    <div className="text-sm font-bold text-[#E1E1E1]">{g.supplier}</div>
+                    <div className="text-sm font-bold text-foreground">{g.supplier}</div>
                     <div className="text-xs text-muted-foreground">
                       {info.email || '—'} · lead time {info.leadDays ?? '?'} day{info.leadDays === 1 ? '' : 's'} · acct {info.account || '—'}
                     </div>
@@ -292,10 +292,10 @@ function DraftOrders({ items, onClose }) {
               <div className="divide-y divide-border/60">
                 {g.lines.map((l) => (
                   <div key={l.name} className="flex items-center justify-between px-4 py-2 text-sm">
-                    <span className="text-[#E1E1E1]">{l.name}</span>
+                    <span className="text-foreground">{l.name}</span>
                     <div className="flex items-center gap-4 text-muted-foreground">
                       <span className="tabular-nums">{l.qty} {l.unit} × {gbp(l.unitCost, { decimals: 2 })}</span>
-                      <span className="w-16 text-right font-semibold tabular-nums text-[#E1E1E1]">{gbp(l.lineTotal, { decimals: 2 })}</span>
+                      <span className="w-16 text-right font-semibold tabular-nums text-foreground">{gbp(l.lineTotal, { decimals: 2 })}</span>
                     </div>
                   </div>
                 ))}
@@ -407,7 +407,7 @@ export default function Inventory() {
                       <TableCell className="text-right tabular-nums">{gbp(item.cost, { decimals: 2 })}</TableCell>
                       <TableCell className="text-right"><Badge variant={st.variant}>{st.label}</Badge></TableCell>
                       <TableCell className="text-right">
-                        <button onClick={() => setHistoryItem(item)} className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted/50 hover:text-brand-cyan" title="Price history">
+                        <button onClick={() => setHistoryItem(item)} className="inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs text-muted-foreground transition-colors hover:bg-muted/50 hover:text-brand-cyanText" title="Price history">
                           <History className="h-3.5 w-3.5" /> History
                         </button>
                       </TableCell>
@@ -436,7 +436,7 @@ export default function Inventory() {
       {historyItem && <PriceHistory locationId={locationId} item={historyItem} onClose={() => setHistoryItem(null)} />}
 
       {toast && (
-        <div className="fixed bottom-5 left-1/2 z-[60] -translate-x-1/2 rounded-lg border border-brand-cyan/30 bg-card px-4 py-2.5 text-sm font-medium text-[#E1E1E1] shadow-glow-cyan animate-fade-in">
+        <div className="fixed bottom-5 left-1/2 z-[60] -translate-x-1/2 rounded-lg border border-brand-cyan/30 bg-card px-4 py-2.5 text-sm font-medium text-foreground shadow-glow-cyan animate-fade-in">
           <Check className="mr-1.5 inline h-4 w-4 text-success" />{toast}
         </div>
       )}

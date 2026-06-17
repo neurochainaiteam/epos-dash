@@ -15,11 +15,14 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@
 const TODAY_LABEL = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
 const BLANK = { id: null, date: TODAY_LABEL, category: 'Rent', vendor: '', amount: '', note: '' }
 
+// Plain categorical swatches — kept off the warning/magenta hue, which is
+// reserved for things that actually need attention, not routine category
+// legends.
 const CAT_TONE = {
-  Rent: 'bg-brand-magenta', Utilities: 'bg-brand-cyan', Insurance: 'bg-success',
-  Packaging: 'bg-warning', Marketing: 'bg-brand-magenta',
+  Rent: 'bg-brand-cyan', Utilities: 'bg-brand-cyan/55', Insurance: 'bg-success',
+  Packaging: 'bg-muted-foreground/50', Marketing: 'bg-brand-cyan/30',
 }
-function catColor(cat) { return CAT_TONE[cat] || 'bg-brand-cyan/70' }
+function catColor(cat) { return CAT_TONE[cat] || 'bg-muted-foreground/40' }
 
 export default function Expenses() {
   const { locationId } = useApp()
@@ -91,7 +94,7 @@ export default function Expenses() {
         {form && (
           <Card className="border-brand-cyan/30 p-5">
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-sm font-bold text-[#E1E1E1]">{form.id ? 'Edit expense' : 'New expense'}</h3>
+              <h3 className="text-sm font-bold text-foreground">{form.id ? 'Edit expense' : 'New expense'}</h3>
               <button onClick={() => setForm(null)} className="rounded-md p-1 text-muted-foreground hover:bg-muted/50 hover:text-foreground"><X className="h-4 w-4" /></button>
             </div>
             {formError && (
@@ -173,7 +176,7 @@ export default function Expenses() {
                         <TableCell className="text-right font-semibold tabular-nums">{gbp(Number(e.amount))}</TableCell>
                         <TableCell className="text-right">
                           <div className="flex justify-end gap-1">
-                            <button onClick={() => setForm({ ...e, amount: String(e.amount) })} className="rounded-md p-1.5 text-muted-foreground hover:bg-muted/50 hover:text-brand-cyan"><Pencil className="h-3.5 w-3.5" /></button>
+                            <button onClick={() => setForm({ ...e, amount: String(e.amount) })} className="rounded-md p-1.5 text-muted-foreground hover:bg-muted/50 hover:text-brand-cyanText"><Pencil className="h-3.5 w-3.5" /></button>
                             <button onClick={() => remove(e.id)} className="rounded-md p-1.5 text-muted-foreground hover:bg-muted/50 hover:text-destructive"><Trash2 className="h-3.5 w-3.5" /></button>
                           </div>
                         </TableCell>

@@ -15,7 +15,7 @@ const statusVariant = { Confirmed: 'accent', Seated: 'success', Pending: 'warnin
 
 const STATE_STYLE = {
   free:     'border-border/70 bg-muted/30 text-muted-foreground',
-  reserved: 'border-brand-cyan/50 bg-brand-cyan/15 text-brand-cyan',
+  reserved: 'border-brand-cyan/50 bg-brand-cyan/15 text-brand-cyanText',
   seated:   'border-success/50 bg-success/15 text-success',
   pending:  'border-warning/50 bg-warning/15 text-warning',
 }
@@ -25,7 +25,7 @@ function FloorMap({ tables }) {
   return (
     <Card className="p-5">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="flex items-center gap-2 text-base font-bold text-[#E1E1E1]"><DoorOpen className="h-4 w-4 text-brand-cyan" /> Floor plan</h2>
+        <h2 className="flex items-center gap-2 text-base font-bold text-foreground"><DoorOpen className="h-4 w-4 text-brand-cyanText" /> Floor plan</h2>
         <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
           {Object.entries(STATE_LABEL).map(([k, label]) => (
             <span key={k} className="flex items-center gap-1.5">
@@ -35,7 +35,7 @@ function FloorMap({ tables }) {
         </div>
       </div>
       <div className="relative w-full overflow-hidden rounded-xl border border-border/60 bg-background/40" style={{ aspectRatio: '16 / 9' }}>
-        <div className="absolute inset-x-0 top-0 flex h-7 items-center justify-center bg-sidebar/60 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+        <div className="absolute inset-x-0 top-0 flex h-7 items-center justify-center bg-sidebar/60 text-[10px] font-semibold uppercase tracking-wider text-white/80">
           Counter & kitchen
         </div>
         {tables.map((t) => (

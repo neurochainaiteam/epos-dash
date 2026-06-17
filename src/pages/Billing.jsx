@@ -41,17 +41,17 @@ export default function Billing() {
                   )}
                 >
                   {p.popular && (
-                    <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand-gradient px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                    <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand-gradient px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary-foreground">
                       <Sparkles className="h-3 w-3" /> Popular
                     </span>
                   )}
-                  <div className="text-sm font-bold text-[#E1E1E1]">{p.name}</div>
+                  <div className="text-sm font-bold text-foreground">{p.name}</div>
                   <div className="mt-2 flex items-baseline gap-1">
-                    <span className="text-3xl font-bold tabular-nums text-[#E1E1E1]">{gbp(p.price)}</span>
+                    <span className="text-3xl font-bold tabular-nums text-foreground">{gbp(p.price)}</span>
                     <span className="text-sm text-muted-foreground">/{p.period}</span>
                   </div>
                   <div className="mt-1 text-xs text-muted-foreground">{p.locations}</div>
-                  <p className="mt-2 text-sm text-[#E1E1E1]/80">{p.tagline}</p>
+                  <p className="mt-2 text-sm text-foreground/80">{p.tagline}</p>
                   <div className="mt-4">
                     {isCurrent ? (
                       <Button variant="outline" className="w-full" disabled>Current plan</Button>
@@ -65,9 +65,9 @@ export default function Billing() {
               )
             })}
           </div>
-          <div className="mt-3 flex items-center gap-2 rounded-lg border border-brand-magenta/20 bg-brand-magenta/5 p-3 text-sm">
-            <Wrench className="h-4 w-4 shrink-0 text-brand-magenta" />
-            <span className="text-foreground/85">One-off onboarding & setup service: <span className="font-semibold text-[#E1E1E1]">{gbp(SETUP_FEE.min)}–{gbp(SETUP_FEE.max)}</span> (menu import, EPOS connection & staff training).</span>
+          <div className="mt-3 flex items-center gap-2 rounded-lg border border-warning/20 bg-warning/5 p-3 text-sm">
+            <Wrench className="h-4 w-4 shrink-0 text-warning" />
+            <span className="text-foreground/85">One-off onboarding & setup service: <span className="font-semibold text-foreground">{gbp(SETUP_FEE.min)}–{gbp(SETUP_FEE.max)}</span> (menu import, EPOS connection & staff training).</span>
           </div>
         </div>
 
@@ -81,7 +81,7 @@ export default function Billing() {
                   <tr className="border-b">
                     <th className="px-5 py-2.5 text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">Feature</th>
                     {PLANS.map((p) => (
-                      <th key={p.key} className={cn('px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-wide', p.key === CURRENT_PLAN_KEY ? 'text-brand-cyan' : 'text-muted-foreground')}>{p.name}</th>
+                      <th key={p.key} className={cn('px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-wide', p.key === CURRENT_PLAN_KEY ? 'text-brand-cyanText' : 'text-muted-foreground')}>{p.name}</th>
                     ))}
                   </tr>
                 </thead>

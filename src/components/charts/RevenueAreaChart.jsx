@@ -22,19 +22,15 @@ export default function RevenueAreaChart({ data, height = 240 }) {
       <AreaChart data={data} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
         <defs>
           <linearGradient id="revFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor={CHART.cyan} stopOpacity={0.45} />
-            <stop offset="100%" stopColor={CHART.magenta} stopOpacity={0} />
-          </linearGradient>
-          <linearGradient id="revStroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor={CHART.cyan} />
-            <stop offset="100%" stopColor={CHART.magenta} />
+            <stop offset="0%" stopColor={CHART.cyan} stopOpacity={0.4} />
+            <stop offset="100%" stopColor={CHART.cyan} stopOpacity={0} />
           </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={CHART.grid} />
         <XAxis dataKey="hour" tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: CHART.axis }} interval={1} />
         <YAxis tickLine={false} axisLine={false} tick={{ fontSize: 11, fill: CHART.axis }} tickFormatter={(v) => `£${v}`} />
         <Tooltip content={<ChartTooltip />} />
-        <Area type="monotone" dataKey="revenue" stroke="url(#revStroke)" strokeWidth={2.5} fill="url(#revFill)" />
+        <Area type="monotone" dataKey="revenue" stroke={CHART.cyan} strokeWidth={2.5} fill="url(#revFill)" />
       </AreaChart>
     </ResponsiveContainer>
   )

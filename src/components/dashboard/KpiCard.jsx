@@ -13,11 +13,11 @@ export default function KpiCard({ label, value, sub, delta, goodWhenUp = true, i
   const positive = hasDelta ? (goodWhenUp ? up : !up) : null
 
   return (
-    <Card className={cn('p-5', highlight && 'ring-1 ring-primary/30 bg-gradient-to-br from-accent/40 to-card')}>
+    <Card className={cn('p-5', highlight && 'ring-1 ring-primary/30')}>
       <div className="flex items-start justify-between">
         <span className="text-sm font-medium text-muted-foreground">{label}</span>
         {Icon && (
-          <span className={cn('flex h-8 w-8 items-center justify-center rounded-lg', highlight ? 'bg-primary/15 text-primary' : 'bg-muted text-muted-foreground')}>
+          <span className={cn('flex h-8 w-8 items-center justify-center rounded-lg', highlight ? 'bg-primary/15 text-brand-cyanText' : 'bg-muted text-muted-foreground')}>
             <Icon className="h-4 w-4" />
           </span>
         )}

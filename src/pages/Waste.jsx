@@ -64,7 +64,7 @@ export default function Waste() {
 
         <div className="grid gap-4 lg:grid-cols-3">
           <Card className="p-5">
-            <CardTitle className="flex items-center gap-2 text-base"><Utensils className="h-4 w-4 text-brand-cyan" /> Waste by menu item</CardTitle>
+            <CardTitle className="flex items-center gap-2 text-base"><Utensils className="h-4 w-4 text-brand-cyanText" /> Waste by menu item</CardTitle>
             <p className="mt-1 text-xs text-muted-foreground">Cost attributed to the dish each waste line feeds</p>
             {loading ? <Skeleton className="mt-4 h-40 w-full" /> : (
               <div className="mt-4 space-y-3">

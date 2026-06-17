@@ -130,7 +130,7 @@ export default function PnL() {
                     >
                       <span className={cn(isTotal ? 'text-foreground' : 'text-foreground/90')}>{row.label}</span>
                       <div className="flex items-center gap-6">
-                        <span className={cn('w-28 text-right tabular-nums', negative ? 'text-destructive' : isTotal ? 'text-primary' : 'text-foreground')}>
+                        <span className={cn('w-28 text-right tabular-nums', negative ? 'text-destructive' : isTotal ? 'text-brand-cyanText' : 'text-foreground')}>
                           {negative ? `(${gbp(Math.abs(row.amount))})` : gbp(row.amount)}
                         </span>
                         <span className="w-16 text-right text-sm tabular-nums text-muted-foreground">{pct(row.pct)}</span>
@@ -150,10 +150,10 @@ export default function PnL() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="flex items-center gap-2 text-base">
-              <Wallet className="h-4 w-4 text-brand-cyan" /> Overheads breakdown
+              <Wallet className="h-4 w-4 text-brand-cyanText" /> Overheads breakdown
             </CardTitle>
             {isDirector && (
-              <Link to="/expenses" className="inline-flex items-center gap-1 text-sm font-medium text-brand-cyan hover:underline">
+              <Link to="/expenses" className="inline-flex items-center gap-1 text-sm font-medium text-brand-cyanText hover:underline">
                 Manage expenses <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             )}

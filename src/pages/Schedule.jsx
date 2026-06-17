@@ -13,10 +13,10 @@ import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 
 const TYPE_TONE = {
-  Holiday:  'bg-brand-magenta/20 text-[#EF36F5]',
+  Holiday:  'bg-warning/15 text-warning',
   Sick:     'bg-destructive/15 text-destructive',
   Unpaid:   'bg-muted text-muted-foreground',
-  Training: 'bg-brand-cyan/15 text-brand-cyan',
+  Training: 'bg-brand-cyan/15 text-brand-cyanText',
 }
 
 export default function Schedule() {
@@ -91,7 +91,7 @@ export default function Schedule() {
 
         {isStaff && (
           <Card className="flex items-center gap-2.5 border-primary/30 bg-accent/40 p-3 text-sm">
-            <Info className="h-4 w-4 shrink-0 text-primary" />
+            <Info className="h-4 w-4 shrink-0 text-brand-cyanText" />
             <span>Your shifts are highlighted below. Holidays and time-off show on the rota in colour.</span>
           </Card>
         )}
@@ -99,7 +99,7 @@ export default function Schedule() {
         {form && (
           <Card className="border-brand-cyan/30 p-5">
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="flex items-center gap-2 text-sm font-bold text-[#E1E1E1]"><Plane className="h-4 w-4 text-brand-cyan" /> Book time off</h3>
+              <h3 className="flex items-center gap-2 text-sm font-bold text-foreground"><Plane className="h-4 w-4 text-brand-cyanText" /> Book time off</h3>
               <button onClick={() => setForm(null)} className="rounded-md p-1 text-muted-foreground hover:bg-muted/50 hover:text-foreground"><X className="h-4 w-4" /></button>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
@@ -126,7 +126,7 @@ export default function Schedule() {
                   const on = form.weekDays.includes(d)
                   return (
                     <button key={d} type="button" onClick={() => setForm({ ...form, weekDays: on ? form.weekDays.filter((x) => x !== d) : [...form.weekDays, d] })}
-                      className={cn('rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors', on ? 'border-brand-cyan/50 bg-brand-cyan/15 text-brand-cyan' : 'border-input text-muted-foreground hover:text-foreground')}>
+                      className={cn('rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors', on ? 'border-brand-cyan/50 bg-brand-cyan/15 text-brand-cyanText' : 'border-input text-muted-foreground hover:text-foreground')}>
                       {d}
                     </button>
                   )
@@ -193,15 +193,15 @@ export default function Schedule() {
 
         <Card className="p-5">
           <div className="flex items-center gap-2">
-            <Plane className="h-4 w-4 text-brand-cyan" />
-            <h2 className="text-base font-bold text-[#E1E1E1]">Time off this period</h2>
+            <Plane className="h-4 w-4 text-brand-cyanText" />
+            <h2 className="text-base font-bold text-foreground">Time off this period</h2>
           </div>
           {loading ? <Skeleton className="mt-3 h-20 w-full" /> : (
             <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
               {allTimeOff.map((t, i) => (
                 <div key={i} className="flex items-center justify-between rounded-lg border border-border/60 bg-background/40 p-3">
                   <div>
-                    <div className="text-sm font-medium text-[#E1E1E1]">{t.name}{locationId === 'all' && <span className="text-xs text-muted-foreground"> · {t.location}</span>}</div>
+                    <div className="text-sm font-medium text-foreground">{t.name}{locationId === 'all' && <span className="text-xs text-muted-foreground"> · {t.location}</span>}</div>
                     <div className="text-xs text-muted-foreground">{t.type} · {t.label} · {t.days} day{t.days === 1 ? '' : 's'}</div>
                   </div>
                   <Badge variant={t.status === 'Approved' ? 'success' : 'warning'}>{t.status}</Badge>

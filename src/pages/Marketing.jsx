@@ -29,14 +29,14 @@ function Funnel({ c }) {
     { label: 'Sent',      value: c.sent,      pct: 100,                         tone: 'bg-brand-cyan/40'  },
     { label: 'Delivered', value: c.delivered,  pct: rate(c.delivered, c.sent),   tone: 'bg-brand-cyan/70'  },
     { label: 'Opened',    value: c.opened,     pct: rate(c.opened, c.sent),      tone: 'bg-brand-cyan'     },
-    { label: 'Redeemed',  value: c.redeemed,   pct: rate(c.redeemed, c.sent),    tone: 'bg-brand-magenta'  },
+    { label: 'Redeemed',  value: c.redeemed,   pct: rate(c.redeemed, c.sent),    tone: 'bg-success'  },
   ]
   return (
     <div className="grid grid-cols-4 gap-2">
       {stages.map((s) => (
         <div key={s.label}>
           <div className="text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{s.label}</div>
-          <div className="mt-0.5 text-sm font-bold tabular-nums text-[#E1E1E1]">{s.value.toLocaleString()}</div>
+          <div className="mt-0.5 text-sm font-bold tabular-nums text-foreground">{s.value.toLocaleString()}</div>
           <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-muted">
             <div className={cn('h-full rounded-full', s.tone)} style={{ width: `${s.pct}%` }} />
           </div>
@@ -122,17 +122,17 @@ export default function Marketing() {
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Megaphone className="h-3.5 w-3.5 text-brand-cyan" />Campaigns</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.campaigns}</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Send className="h-3.5 w-3.5 text-brand-cyan" />SMS sent</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.sent.toLocaleString()}</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Eye className="h-3.5 w-3.5 text-brand-cyan" />Avg open rate</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.openRate}%</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><BadgePercent className="h-3.5 w-3.5 text-brand-magenta" />Redeemed</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.redeemed.toLocaleString()}</div></Card>
+            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Megaphone className="h-3.5 w-3.5 text-brand-cyanText" />Campaigns</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.campaigns}</div></Card>
+            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Send className="h-3.5 w-3.5 text-brand-cyanText" />SMS sent</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.sent.toLocaleString()}</div></Card>
+            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Eye className="h-3.5 w-3.5 text-brand-cyanText" />Avg open rate</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.openRate}%</div></Card>
+            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><BadgePercent className="h-3.5 w-3.5 text-success" />Redeemed</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.redeemed.toLocaleString()}</div></Card>
           </div>
         )}
 
         {compose && (
           <Card className="border-brand-cyan/30 p-5">
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="flex items-center gap-2 text-sm font-bold text-[#E1E1E1]"><MessageSquare className="h-4 w-4 text-brand-cyan" /> New SMS campaign</h3>
+              <h3 className="flex items-center gap-2 text-sm font-bold text-foreground"><MessageSquare className="h-4 w-4 text-brand-cyanText" /> New SMS campaign</h3>
               <button onClick={() => setCompose(null)} className="rounded-md p-1 text-muted-foreground hover:bg-muted/50 hover:text-foreground"><X className="h-4 w-4" /></button>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
@@ -166,13 +166,13 @@ export default function Marketing() {
                 <Card key={c.id} className="p-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-bold text-[#E1E1E1]">{c.name}</span>
+                      <span className="text-sm font-bold text-foreground">{c.name}</span>
                       <Badge variant={STATUS_VARIANT[c.status] || 'secondary'}>{c.status}</Badge>
                       {locationId === 'all' && <Badge variant="secondary">{c.location}</Badge>}
                     </div>
                     <span className="text-xs text-muted-foreground">{c.date} · {c.audience}</span>
                   </div>
-                  <p className="mt-2 rounded-lg border border-border/60 bg-background/40 px-3 py-2 text-sm text-[#E1E1E1]/85">{c.message}</p>
+                  <p className="mt-2 rounded-lg border border-border/60 bg-background/40 px-3 py-2 text-sm text-foreground/80">{c.message}</p>
                   {c.sent > 0 ? (
                     <div className="mt-3"><Funnel c={c} /></div>
                   ) : (
@@ -194,11 +194,11 @@ export default function Marketing() {
                 return (
                   <div key={i} className="flex items-center gap-3 p-3">
                     <span className={cn('flex h-9 w-9 shrink-0 items-center justify-center rounded-full',
-                      call.outcome === 'Missed' ? 'bg-destructive/15 text-destructive' : 'bg-brand-cyan/10 text-brand-cyan')}>
+                      call.outcome === 'Missed' ? 'bg-destructive/15 text-destructive' : 'bg-brand-cyan/10 text-brand-cyanText')}>
                       <Icon className="h-4 w-4" />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <div className="truncate text-sm font-medium text-[#E1E1E1]">{call.name}</div>
+                      <div className="truncate text-sm font-medium text-foreground">{call.name}</div>
                       <div className="text-xs text-muted-foreground">{call.number} · {call.type}</div>
                     </div>
                     <div className="shrink-0 text-right">

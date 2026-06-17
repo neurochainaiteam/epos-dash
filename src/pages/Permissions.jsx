@@ -48,11 +48,11 @@ export default function Permissions() {
             return (
               <Card key={r} className="p-4">
                 <div className="flex items-center justify-between">
-                  <div className="text-sm font-bold text-[#E1E1E1]">{ROLE_META[r].label}</div>
+                  <div className="text-sm font-bold text-foreground">{ROLE_META[r].label}</div>
                   {!EDITABLE_ROLES.includes(r) && <Lock className="h-3.5 w-3.5 text-muted-foreground" />}
                 </div>
                 <p className="mt-1 text-xs text-muted-foreground">{ROLE_META[r].blurb}</p>
-                <div className="mt-2 text-lg font-bold tabular-nums text-brand-cyan">{count} <span className="text-xs font-normal text-muted-foreground">pages</span></div>
+                <div className="mt-2 text-lg font-bold tabular-nums text-brand-cyanText">{count} <span className="text-xs font-normal text-muted-foreground">pages</span></div>
               </Card>
             )
           })}
@@ -76,7 +76,7 @@ export default function Permissions() {
                 {PAGES.map((p) => (
                   <tr key={p.key} className="border-b last:border-0 hover:bg-muted/30">
                     <td className="px-4 py-2.5">
-                      <div className="font-medium text-[#E1E1E1]">{p.label}</div>
+                      <div className="font-medium text-foreground">{p.label}</div>
                       <div className="text-[11px] uppercase tracking-wide text-muted-foreground">{p.group}</div>
                     </td>
                     {ROLE_ORDER.map((r) => {
@@ -106,7 +106,7 @@ export default function Permissions() {
         </Card>
 
         <div className="flex items-start gap-2 rounded-lg border border-brand-cyan/20 bg-brand-cyan/5 p-3 text-sm text-muted-foreground">
-          <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-cyan" />
+          <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-cyanText" />
           <span>
             Toggles are driven from the central roles config. Director access is structural and can’t be edited away.
             Staff and Manager rows can be granted any page within their tier — changes update the sidebar and route guards immediately.

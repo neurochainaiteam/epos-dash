@@ -43,7 +43,7 @@ function RangeSelector({ range, setRange, custom, setCustom }) {
   return (
     <div className="relative" ref={ref}>
       <button onClick={() => setOpen((v) => !v)} className="inline-flex items-center gap-2 rounded-lg border bg-card px-3.5 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-        <Calendar className="h-4 w-4 text-brand-cyan" /> {active?.label}
+        <Calendar className="h-4 w-4 text-brand-cyanText" /> {active?.label}
         <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} />
       </button>
       {open && (
@@ -51,7 +51,7 @@ function RangeSelector({ range, setRange, custom, setCustom }) {
           <div className="px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">Date range</div>
           {RANGES.map((r) => (
             <button key={r.key} onClick={() => { setRange(r.key); if (r.key !== 'custom') setOpen(false) }}
-              className={cn('flex w-full items-center justify-between rounded-md px-2.5 py-2 text-left text-sm transition-colors hover:bg-accent', range === r.key && 'bg-accent/60 text-brand-cyan')}>
+              className={cn('flex w-full items-center justify-between rounded-md px-2.5 py-2 text-left text-sm transition-colors hover:bg-accent', range === r.key && 'bg-accent/60 text-brand-cyanText')}>
               {r.label}
             </button>
           ))}
@@ -66,7 +66,7 @@ function RangeSelector({ range, setRange, custom, setCustom }) {
             </div>
           )}
           <div className="flex items-start gap-1.5 border-t border-border/60 px-2.5 py-2 text-[10px] text-muted-foreground">
-            <Database className="mt-0.5 h-3 w-3 shrink-0 text-brand-cyan" /> Up to 3 years of history is retained for trend analysis.
+            <Database className="mt-0.5 h-3 w-3 shrink-0 text-brand-cyanText" /> Up to 3 years of history is retained for trend analysis.
           </div>
         </div>
       )}
@@ -85,7 +85,7 @@ function ExportMenu({ onExport, busy }) {
   return (
     <div className="relative" ref={ref}>
       <button type="button" disabled={busy} onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-3.5 py-2 text-sm font-semibold text-white shadow-glow-cyan transition-opacity hover:opacity-90 disabled:opacity-60">
+        className="inline-flex items-center gap-2 rounded-lg bg-brand-gradient px-3.5 py-2 text-sm font-semibold text-primary-foreground shadow-glow-cyan transition-opacity hover:opacity-90 disabled:opacity-60">
         {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
         {busy ? 'Exporting…' : 'Export'}
         {!busy && <ChevronDown className={cn('h-4 w-4 transition-transform', open && 'rotate-180')} />}
@@ -96,7 +96,7 @@ function ExportMenu({ onExport, busy }) {
           {FORMATS.map((f) => (
             <button key={f.key} onClick={() => { setOpen(false); onExport(f.key) }}
               className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-sm text-foreground transition-colors hover:bg-accent">
-              <f.icon className="h-4 w-4 text-brand-cyan" /> {f.label}
+              <f.icon className="h-4 w-4 text-brand-cyanText" /> {f.label}
             </button>
           ))}
         </div>
@@ -173,13 +173,13 @@ export default function Analytics() {
 
         <Card className="flex flex-wrap items-center justify-between gap-3 border-brand-cyan/20 p-4">
           <div className="flex items-center gap-2 text-sm">
-            <Calendar className="h-4 w-4 text-brand-cyan" />
+            <Calendar className="h-4 w-4 text-brand-cyanText" />
             <span className="text-muted-foreground">Showing</span>
-            <span className="font-semibold text-[#E1E1E1]">{rangeLabel}</span>
+            <span className="font-semibold text-foreground">{rangeLabel}</span>
           </div>
           <div className="flex items-center gap-6 text-sm">
-            <div><span className="text-muted-foreground">Revenue </span><span className="font-bold tabular-nums text-[#E1E1E1]">{gbp(rangeRevenue)}</span></div>
-            <div><span className="text-muted-foreground">Orders </span><span className="font-bold tabular-nums text-[#E1E1E1]">{rangeOrders.toLocaleString()}</span></div>
+            <div><span className="text-muted-foreground">Revenue </span><span className="font-bold tabular-nums text-foreground">{gbp(rangeRevenue)}</span></div>
+            <div><span className="text-muted-foreground">Orders </span><span className="font-bold tabular-nums text-foreground">{rangeOrders.toLocaleString()}</span></div>
           </div>
         </Card>
 
@@ -208,8 +208,8 @@ export default function Analytics() {
 
         <Card className="p-5 sm:p-6">
           <div className="flex items-center gap-2">
-            <Trash2 className="h-4 w-4 text-brand-cyan" />
-            <h2 className="text-base font-bold text-[#E1E1E1]">Waste cost by menu item</h2>
+            <Trash2 className="h-4 w-4 text-brand-cyanText" />
+            <h2 className="text-base font-bold text-foreground">Waste cost by menu item</h2>
           </div>
           <p className="mt-1 text-xs text-muted-foreground">Where logged waste is costing you the most, attributed per dish</p>
           {loading ? <Skeleton className="mt-4 h-40 w-full" /> : (
@@ -218,7 +218,7 @@ export default function Analytics() {
                 <div key={w.recipe}>
                   <div className="flex items-center justify-between text-sm">
                     <span className="truncate pr-2 text-foreground/85">{w.recipe}</span>
-                    <span className="shrink-0 font-semibold tabular-nums text-[#E1E1E1]">{gbp(w.cost, { decimals: 2 })}</span>
+                    <span className="shrink-0 font-semibold tabular-nums text-foreground">{gbp(w.cost, { decimals: 2 })}</span>
                   </div>
                   <div className="mt-1 h-2 overflow-hidden rounded-full bg-muted">
                     <div className="h-full rounded-full bg-brand-gradient" style={{ width: `${(w.cost / maxWaste) * 100}%` }} />

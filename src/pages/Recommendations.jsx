@@ -23,10 +23,10 @@ const ICONS = {
 function InsightCard({ card }) {
   const Icon = ICONS[card.icon] || Sparkles
   return (
-    <Card className="flex flex-col border-border/70 bg-card/80 p-5 transition-all hover:border-brand-cyan/40 hover:shadow-glow-cyan">
+    <Card className="flex flex-col border-border/70 transition-all hover:border-brand-cyan/40 hover:shadow-glow-cyan">
       <div className="flex items-center gap-3">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-cyan/10 ring-1 ring-brand-cyan/25">
-          <Icon className="h-[22px] w-[22px] text-brand-cyan" />
+          <Icon className="h-[22px] w-[22px] text-brand-cyanText" />
         </span>
         <span className="rounded-full border border-border/70 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
           {card.category}
@@ -34,20 +34,20 @@ function InsightCard({ card }) {
       </div>
 
       <h3 className="rec-title mt-4 text-[15px] font-bold leading-snug tracking-tight">{card.title}</h3>
-      <p className="mt-1.5 flex-1 text-sm leading-relaxed text-[#E1E1E1]/85">{card.insight}</p>
+      <p className="mt-1.5 flex-1 text-sm leading-relaxed text-foreground/80">{card.insight}</p>
 
       <div className="mt-4 grid grid-cols-3 gap-2">
         {card.data.map((d) => (
           <div key={d.label} className="rounded-lg border border-border/60 bg-background/50 px-2.5 py-2">
             <div className="truncate text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{d.label}</div>
-            <div className="mt-0.5 truncate text-sm font-semibold tabular-nums text-[#E1E1E1]">{d.value}</div>
+            <div className="mt-0.5 truncate text-sm font-semibold tabular-nums text-foreground">{d.value}</div>
           </div>
         ))}
       </div>
 
       <div className="mt-4 flex items-start gap-2 rounded-lg border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-2.5">
-        <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-brand-cyan" />
-        <span className="text-sm font-medium text-[#E1E1E1]">{card.action}</span>
+        <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-brand-cyanText" />
+        <span className="text-sm font-medium text-foreground">{card.action}</span>
       </div>
     </Card>
   )
@@ -105,18 +105,16 @@ export default function Recommendations() {
         )}
 
         <Card className="relative overflow-hidden border-brand-cyan/20 p-5 sm:p-6">
-          <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand-cyan/10 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-20 right-24 h-48 w-48 rounded-full bg-brand-magenta/10 blur-3xl" />
           <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gradient text-white shadow-glow-cyan">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gradient text-primary-foreground shadow-glow-cyan">
                 <Sparkles className="h-6 w-6" />
               </span>
               <div>
                 <div className="text-xs text-muted-foreground">For {locationName(locationId)}</div>
                 {loading ? <Skeleton className="mt-1 h-6 w-48" /> : (
-                  <div className="text-xl font-bold text-[#E1E1E1]">
-                    <span className="text-brand-cyan">{counts.opportunities} opportunities</span>
+                  <div className="text-xl font-bold text-foreground">
+                    <span className="text-brand-cyanText">{counts.opportunities} opportunities</span>
                     <span className="text-muted-foreground"> · </span>
                     <span className="rec-title">{counts.warnings} things to watch</span>
                   </div>
@@ -126,13 +124,13 @@ export default function Recommendations() {
             {!loading && (
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2 rounded-xl border border-brand-cyan/25 bg-brand-cyan/5 px-3 py-2">
-                  <Lightbulb className="h-4 w-4 text-brand-cyan" />
-                  <span className="text-sm font-semibold tabular-nums text-[#E1E1E1]">{counts.opportunities}</span>
+                  <Lightbulb className="h-4 w-4 text-brand-cyanText" />
+                  <span className="text-sm font-semibold tabular-nums text-foreground">{counts.opportunities}</span>
                   <span className="text-xs text-muted-foreground">to act on</span>
                 </div>
                 <div className="flex items-center gap-2 rounded-xl border border-border/70 bg-background/40 px-3 py-2">
-                  <AlertTriangle className="h-4 w-4 text-[#EF36F5]" />
-                  <span className="text-sm font-semibold tabular-nums text-[#E1E1E1]">{counts.warnings}</span>
+                  <AlertTriangle className="h-4 w-4 text-warning" />
+                  <span className="text-sm font-semibold tabular-nums text-foreground">{counts.warnings}</span>
                   <span className="text-xs text-muted-foreground">to watch</span>
                 </div>
               </div>
