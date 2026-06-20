@@ -503,7 +503,7 @@ create table if not exists public.platform_accounts (
   store_id     text not null default '',
   status       text not null check (status in ('Connected', 'Action needed', 'Not connected')),
   orders_today int not null default 0,
-  last_sync    text not null default '—',
+  last_sync    text not null default 'Never synced',
   created_at   timestamptz not null default now()
 );
 

@@ -273,37 +273,37 @@ insert into public.staff_members (location_id, name, role, wage, contract, shift
 values
   -- bham
   ('bham', 'Aisha Khan',    'Front of House',  11.80, 'Part-time',
-    '{"Mon":null,"Tue":"16:00–23:00","Wed":"16:00–23:00","Thu":null,"Fri":"16:00–23:30","Sat":"16:00–23:30","Sun":"15:00–22:00"}'),
+    '{"Mon":null,"Tue":"16:00 to 23:00","Wed":"16:00 to 23:00","Thu":null,"Fri":"16:00 to 23:30","Sat":"16:00 to 23:30","Sun":"15:00 to 22:00"}'),
   ('bham', 'Daniel Osei',   'Branch Manager',  16.50, 'Full-time',
-    '{"Mon":"11:00–20:00","Tue":"11:00–20:00","Wed":"11:00–20:00","Thu":"11:00–20:00","Fri":"14:00–23:30","Sat":"14:00–23:30","Sun":null}'),
+    '{"Mon":"11:00 to 20:00","Tue":"11:00 to 20:00","Wed":"11:00 to 20:00","Thu":"11:00 to 20:00","Fri":"14:00 to 23:30","Sat":"14:00 to 23:30","Sun":null}'),
   ('bham', 'Marek Kowalski','Head Pizza Chef', 14.00, 'Full-time',
-    '{"Mon":"15:00–23:00","Tue":"15:00–23:00","Wed":"15:00–23:00","Thu":null,"Fri":"15:00–23:30","Sat":"15:00–23:30","Sun":"14:00–22:00"}'),
+    '{"Mon":"15:00 to 23:00","Tue":"15:00 to 23:00","Wed":"15:00 to 23:00","Thu":null,"Fri":"15:00 to 23:30","Sat":"15:00 to 23:30","Sun":"14:00 to 22:00"}'),
   ('bham', 'Priya Patel',   'Pizza Chef',      13.50, 'Full-time',
-    '{"Mon":"16:00–23:00","Tue":null,"Wed":"16:00–23:00","Thu":"16:00–23:00","Fri":"16:00–23:30","Sat":"16:00–23:30","Sun":"15:00–22:00"}'),
+    '{"Mon":"16:00 to 23:00","Tue":null,"Wed":"16:00 to 23:00","Thu":"16:00 to 23:00","Fri":"16:00 to 23:30","Sat":"16:00 to 23:30","Sun":"15:00 to 22:00"}'),
   ('bham', 'Tom Reeves',    'Delivery Driver', 11.44, 'Part-time',
-    '{"Mon":null,"Tue":"17:00–23:00","Wed":"17:00–23:00","Thu":"17:00–23:00","Fri":"17:00–23:30","Sat":"17:00–23:30","Sun":"16:00–22:00"}'),
+    '{"Mon":null,"Tue":"17:00 to 23:00","Wed":"17:00 to 23:00","Thu":"17:00 to 23:00","Fri":"17:00 to 23:30","Sat":"17:00 to 23:30","Sun":"16:00 to 22:00"}'),
   ('bham', 'Sofia Alves',   'Kitchen Porter',  11.44, 'Part-time',
-    '{"Mon":"17:00–22:00","Tue":"17:00–22:00","Wed":null,"Thu":"17:00–22:00","Fri":"17:00–23:00","Sat":"17:00–23:00","Sun":null}'),
+    '{"Mon":"17:00 to 22:00","Tue":"17:00 to 22:00","Wed":null,"Thu":"17:00 to 22:00","Fri":"17:00 to 23:00","Sat":"17:00 to 23:00","Sun":null}'),
   -- leic
   ('leic', 'Mei Lin',    'Front of House',  11.60, 'Part-time',
-    '{"Mon":null,"Tue":"16:00–23:00","Wed":"16:00–23:00","Thu":"16:00–23:00","Fri":"16:00–23:30","Sat":"16:00–23:30","Sun":null}'),
+    '{"Mon":null,"Tue":"16:00 to 23:00","Wed":"16:00 to 23:00","Thu":"16:00 to 23:00","Fri":"16:00 to 23:30","Sat":"16:00 to 23:30","Sun":null}'),
   ('leic', 'Kevin Tran', 'Branch Manager',  16.00, 'Full-time',
-    '{"Mon":"12:00–21:00","Tue":"12:00–21:00","Wed":"12:00–21:00","Thu":"12:00–21:00","Fri":"15:00–23:30","Sat":"15:00–23:30","Sun":null}'),
+    '{"Mon":"12:00 to 21:00","Tue":"12:00 to 21:00","Wed":"12:00 to 21:00","Thu":"12:00 to 21:00","Fri":"15:00 to 23:30","Sat":"15:00 to 23:30","Sun":null}'),
   ('leic', 'Wei Chen',   'Pizza Chef',      14.50, 'Full-time',
-    '{"Mon":"16:00–23:00","Tue":"16:00–23:00","Wed":null,"Thu":"16:00–23:00","Fri":"16:00–23:30","Sat":"16:00–23:30","Sun":"15:00–22:00"}'),
+    '{"Mon":"16:00 to 23:00","Tue":"16:00 to 23:00","Wed":null,"Thu":"16:00 to 23:00","Fri":"16:00 to 23:30","Sat":"16:00 to 23:30","Sun":"15:00 to 22:00"}'),
   ('leic', 'Jamie Doyle','Delivery Driver', 11.44, 'Part-time',
-    '{"Mon":null,"Tue":"17:00–23:00","Wed":"17:00–23:00","Thu":"17:00–23:00","Fri":"17:00–23:30","Sat":"17:00–23:30","Sun":"16:00–22:00"}'),
+    '{"Mon":null,"Tue":"17:00 to 23:00","Wed":"17:00 to 23:00","Thu":"17:00 to 23:00","Fri":"17:00 to 23:30","Sat":"17:00 to 23:30","Sun":"16:00 to 22:00"}'),
   ('leic', 'Lucy Ward',  'Kitchen Porter',  11.44, 'Part-time',
-    '{"Mon":"17:00–22:00","Tue":null,"Wed":"17:00–22:00","Thu":"17:00–22:00","Fri":"17:00–23:00","Sat":"17:00–23:00","Sun":null}'),
+    '{"Mon":"17:00 to 22:00","Tue":null,"Wed":"17:00 to 22:00","Thu":"17:00 to 22:00","Fri":"17:00 to 23:00","Sat":"17:00 to 23:00","Sun":null}'),
   -- cov
   ('cov',  'Yusuf Demir',  'Front of House',  11.50, 'Part-time',
-    '{"Mon":"16:00–23:00","Tue":null,"Wed":"16:00–23:00","Thu":"16:00–23:00","Fri":"16:00–00:00","Sat":"16:00–00:00","Sun":"16:00–22:00"}'),
+    '{"Mon":"16:00 to 23:00","Tue":null,"Wed":"16:00 to 23:00","Thu":"16:00 to 23:00","Fri":"16:00 to 00:00","Sat":"16:00 to 00:00","Sun":"16:00 to 22:00"}'),
   ('cov',  'Rob Skinner',  'Branch Manager',  15.50, 'Full-time',
-    '{"Mon":"14:00–22:00","Tue":"14:00–22:00","Wed":"14:00–22:00","Thu":"14:00–22:00","Fri":"16:00–00:00","Sat":"16:00–00:00","Sun":null}'),
+    '{"Mon":"14:00 to 22:00","Tue":"14:00 to 22:00","Wed":"14:00 to 22:00","Thu":"14:00 to 22:00","Fri":"16:00 to 00:00","Sat":"16:00 to 00:00","Sun":null}'),
   ('cov',  'Hassan Ali',   'Pizza Chef',      13.00, 'Full-time',
-    '{"Mon":"16:00–23:00","Tue":"16:00–23:00","Wed":null,"Thu":"16:00–23:00","Fri":"16:00–00:00","Sat":"16:00–00:00","Sun":"16:00–22:00"}'),
+    '{"Mon":"16:00 to 23:00","Tue":"16:00 to 23:00","Wed":null,"Thu":"16:00 to 23:00","Fri":"16:00 to 00:00","Sat":"16:00 to 00:00","Sun":"16:00 to 22:00"}'),
   ('cov',  'Chloe Bennett','Delivery Driver', 11.44, 'Part-time',
-    '{"Mon":null,"Tue":"17:00–23:00","Wed":"17:00–23:00","Thu":"17:00–23:00","Fri":"17:00–00:00","Sat":"17:00–00:00","Sun":"17:00–22:00"}')
+    '{"Mon":null,"Tue":"17:00 to 23:00","Wed":"17:00 to 23:00","Thu":"17:00 to 23:00","Fri":"17:00 to 00:00","Sat":"17:00 to 00:00","Sun":"17:00 to 22:00"}')
 on conflict do nothing;
 
 
@@ -396,11 +396,11 @@ on conflict do nothing;
 insert into public.time_off (location_id, staff_name, role, type, status, label, week_days, days)
 values
   -- bham
-  ('bham', 'Sofia Alves',    'Kitchen Porter',  'Holiday', 'Approved', '13–14 Jun', ARRAY['Sat','Sun'], 2),
+  ('bham', 'Sofia Alves',    'Kitchen Porter',  'Holiday', 'Approved', '13 to 14 Jun', ARRAY['Sat','Sun'], 2),
   ('bham', 'Tom Reeves',     'Delivery Driver', 'Sick',    'Approved', '11 Jun',    ARRAY['Wed'],       1),
-  ('bham', 'Marek Kowalski', 'Head Pizza Chef', 'Holiday', 'Pending',  '16–30 Jun', ARRAY[]::text[],   14),
+  ('bham', 'Marek Kowalski', 'Head Pizza Chef', 'Holiday', 'Pending',  '16 to 30 Jun', ARRAY[]::text[],   14),
   -- leic
-  ('leic', 'Mei Lin',        'Front of House',  'Holiday', 'Pending',  '12–13 Jun', ARRAY['Fri','Sat'], 2),
+  ('leic', 'Mei Lin',        'Front of House',  'Holiday', 'Pending',  '12 to 13 Jun', ARRAY['Fri','Sat'], 2),
   -- cov
   ('cov',  'Chloe Bennett',  'Delivery Driver', 'Holiday', 'Approved', '14 Jun',    ARRAY['Sun'],       1)
 on conflict do nothing;
@@ -425,7 +425,7 @@ values
   -- leic
   ('leic', 'C-401', 'Belgrave Loyalty Launch', '2026-06-02', 'All opted-in',
      880,  861, 402, 57, 'Completed',
-    'Belgrave reward club is live 🎉 Collect a stamp on every order — your 6th pizza is on us.'),
+    'Belgrave reward club is live 🎉 Collect a stamp on every order, your 6th pizza is on us.'),
   ('leic', 'C-402', 'Match Day Meal Deal',     '2026-06-08', 'Delivery customers',
      610,  598, 281, 49, 'Completed',
     'Big game tonight ⚽ Pizza + wings + drink £14.99. Order before kick-off!'),
@@ -465,18 +465,18 @@ values
   -- bham
   ('bham', 'justeat',   'Sparkhill Pizza',        'JE-7741', 'Connected',      23, '2 min ago'),
   ('bham', 'ubereats',  'Sparkhill Pizza',         'UE-9920', 'Connected',      17, '1 min ago'),
-  ('bham', 'ubereats',  'Sparkhill — Late Menu',   'UE-9921', 'Action needed',   0, '—'),
+  ('bham', 'ubereats',  'Sparkhill: Late Menu',    'UE-9921', 'Action needed',   0, 'Never synced'),
   ('bham', 'deliveroo', 'Sparkhill Pizza',         'DL-3380', 'Connected',      14, '4 min ago'),
   ('bham', 'foodhub',   'Sparkhill Pizza',         'FH-1102', 'Connected',       6, '6 min ago'),
   -- leic
   ('leic', 'justeat',   'Belgrave Pizza',          'JE-5510', 'Connected',      18, '3 min ago'),
   ('leic', 'ubereats',  'Belgrave Pizza',          'UE-7741', 'Connected',      12, '2 min ago'),
   ('leic', 'deliveroo', 'Belgrave Pizza',          'DL-2204', 'Connected',       9, '5 min ago'),
-  ('leic', 'foodhub',   'Belgrave Pizza',          'FH-0907', 'Action needed',   0, '—'),
+  ('leic', 'foodhub',   'Belgrave Pizza',          'FH-0907', 'Action needed',   0, 'Never synced'),
   -- cov
   ('cov',  'justeat',   'City Centre Pizza',       'JE-9912', 'Connected',      15, '1 min ago'),
   ('cov',  'ubereats',  'City Centre Pizza',       'UE-3318', 'Connected',      11, '3 min ago'),
-  ('cov',  'deliveroo', 'City Centre Pizza',       'DL-7740', 'Not connected',   0, '—')
+  ('cov',  'deliveroo', 'City Centre Pizza',       'DL-7740', 'Not connected',   0, 'Never synced')
 on conflict do nothing;
 
 

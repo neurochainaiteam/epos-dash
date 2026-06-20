@@ -38,7 +38,7 @@ export default function SignIn() {
       {/* Brand panel */}
       <div className="relative flex flex-col justify-between overflow-hidden bg-sidebar p-8 text-white lg:w-[42%] lg:p-12">
         <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-cyan/20 blur-3xl" />
-        <div className="absolute -bottom-32 -left-16 h-80 w-80 rounded-full bg-brand-magenta/15 blur-3xl" />
+        <div className="absolute -bottom-32 -left-16 h-80 w-80 rounded-full bg-brand-cyan/10 blur-3xl" />
 
         <div className="relative flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/15">

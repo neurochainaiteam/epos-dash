@@ -11,14 +11,12 @@ const HEADER_VIOLET = [29, 1, 77] // #1D014D
 const CYAN = [5, 215, 238] // #05D7EE
 const SILVER = [225, 225, 225] // #E1E1E1
 
-// Brain-circuit brand mark (cyan → magenta), no backdrop — sits on the violet band.
+// Brain-circuit brand mark in solid Neon Cyan, no backdrop, sits on the violet band.
 const LOGO_SVG = `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none">
-<defs><linearGradient id="g" x1="6" y1="10" x2="58" y2="54" gradientUnits="userSpaceOnUse"><stop stop-color="#05D7EE"/><stop offset="1" stop-color="#EF36F5"/></linearGradient></defs>
-<path d="M32 12c-4.4-3.2-11-2.6-14.2 1.6-3 .2-5.6 2.3-6.2 5.3-2.8 1.2-4.4 4.2-3.6 7.1-2 2.2-2.3 5.5-.6 8 .1 3.4 2.6 6.3 6 6.9 1.4 3.4 5 5.4 8.6 4.7 2.4 2.6 6.4 3 9.2 1V12Z" stroke="url(#g)" stroke-width="2.4" stroke-linejoin="round"/>
-<path d="M32 12c4.4-3.2 11-2.6 14.2 1.6 3 .2 5.6 2.3 6.2 5.3 2.8 1.2 4.4 4.2 3.6 7.1 2 2.2 2.3 5.5.6 8-.1 3.4-2.6 6.3-6 6.9-1.4 3.4-5 5.4-8.6 4.7-2.4 2.6-6.4 3-9.2 1V12Z" stroke="url(#g)" stroke-width="2.4" stroke-linejoin="round"/>
-<path d="M32 12v40" stroke="url(#g)" stroke-width="2.4" stroke-linecap="round"/>
-<g fill="#05D7EE"><circle cx="19" cy="30" r="2.3"/><circle cx="25" cy="22" r="2.3"/></g>
-<g fill="#EF36F5"><circle cx="40" cy="26" r="2.3"/><circle cx="44" cy="42" r="2.3"/></g>
+<path d="M32 12c-4.4-3.2-11-2.6-14.2 1.6-3 .2-5.6 2.3-6.2 5.3-2.8 1.2-4.4 4.2-3.6 7.1-2 2.2-2.3 5.5-.6 8 .1 3.4 2.6 6.3 6 6.9 1.4 3.4 5 5.4 8.6 4.7 2.4 2.6 6.4 3 9.2 1V12Z" stroke="#05D7EE" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M32 12c4.4-3.2 11-2.6 14.2 1.6 3 .2 5.6 2.3 6.2 5.3 2.8 1.2 4.4 4.2 3.6 7.1 2 2.2 2.3 5.5.6 8-.1 3.4-2.6 6.3-6 6.9-1.4 3.4-5 5.4-8.6 4.7-2.4 2.6-6.4 3-9.2 1V12Z" stroke="#05D7EE" stroke-width="2.4" stroke-linejoin="round"/>
+<path d="M32 12v40" stroke="#05D7EE" stroke-width="2.4" stroke-linecap="round"/>
+<g fill="#05D7EE"><circle cx="19" cy="30" r="2.3"/><circle cx="25" cy="22" r="2.3"/><circle cx="40" cy="26" r="2.3"/><circle cx="44" cy="42" r="2.3"/></g>
 </svg>`
 
 function svgToPngDataUrl(svg, size = 96) {

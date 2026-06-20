@@ -27,7 +27,7 @@ const CALLOUT_TONE = {
   busy:    'border-brand-cyan/30 bg-brand-cyan/5',
   quiet:   'border-border/70 bg-background/40',
   weather: 'border-brand-cyan/30 bg-brand-cyan/5',
-  event:   'border-brand-magenta/30 bg-brand-magenta/5',
+  event:   'border-foreground/20 bg-muted/60',
 }
 
 function StatCard({ icon: Icon, label, value, sub }) {
@@ -164,7 +164,7 @@ export default function Forecasting() {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
               <h2 className="text-base font-bold text-foreground">Demand forecast · next 14 days</h2>
-              <p className="text-xs text-muted-foreground">Predicted revenue per day — busy days highlighted, weekends marked</p>
+              <p className="text-xs text-muted-foreground">Predicted revenue per day. Busy days highlighted, weekends marked</p>
             </div>
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
               <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full bg-brand-gradient" /> Busy</span>
@@ -184,7 +184,7 @@ export default function Forecasting() {
                     {gbp(d.predictedRevenue)}
                   </div>
                   <div
-                    className={cn('w-full rounded-md transition-all', s.bar, s.glow, d.weekend && 'ring-1 ring-brand-magenta/30')}
+                    className={cn('w-full rounded-md transition-all', s.bar, s.glow, d.weekend && 'ring-1 ring-foreground/20')}
                     style={{ height: h }}
                     title={`${d.date}: ~${d.predictedOrders} orders · ${gbp(d.predictedRevenue)} (${d.deltaPct >= 0 ? '+' : ''}${d.deltaPct}%)`}
                   />
@@ -261,7 +261,7 @@ export default function Forecasting() {
             <Card className="flex items-start gap-3 border-brand-cyan/25 bg-brand-cyan/5 p-4">
               <CloudRain className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyanText" />
               <div className="text-sm">
-                <span className="font-semibold text-foreground">Seasonal factor — {rain.dow} {rain.date.split(' ').slice(1).join(' ')}:</span>{' '}
+                <span className="font-semibold text-foreground">Seasonal factor, {rain.dow} {rain.date.split(' ').slice(1).join(' ')}:</span>{' '}
                 <span className="text-foreground/80">{rain.note}. We've already factored this into the demand and staffing figures above.</span>
               </div>
             </Card>
@@ -270,7 +270,7 @@ export default function Forecasting() {
 
         <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
           <ArrowRight className="h-3.5 w-3.5" />
-          Rule-based projection over live history — ready to swap in a trained forecasting model. Data-retention target: up to 3 years.
+          Rule-based projection over live history, ready to swap in a trained forecasting model. Data-retention target: up to 3 years.
         </p>
       </div>
     </div>

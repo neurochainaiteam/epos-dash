@@ -23,8 +23,8 @@
 
 @layer base {
   :root {
-    /* Surfaces — light neutral grey canvas, white cards */
-    --background: 220 13% 95%;
+    /* Surfaces — Soft Silver canvas, white cards */
+    --background: 0 0% 88%;
     --foreground: 0 0% 23%;
 
     --card: 0 0% 100%;
@@ -34,12 +34,12 @@
     --primary: 186 96% 48%;
     --primary-foreground: 0 0% 23%;
 
-    /* Light grey surface for secondary controls */
-    --secondary: 220 14% 93%;
+    /* Light grey surface for secondary controls — neutral, no blue tint */
+    --secondary: 0 0% 93%;
     --secondary-foreground: 0 0% 23%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 46%;
 
     /* Cyan-tinted highlight surface */
     --accent: 186 90% 95%;
@@ -90,10 +90,9 @@
 }
 
 @layer components {
-  /* cyan → magenta text — brand wordmark only (sidebar / sign-in, dark surfaces) */
+  /* Flat Neon Cyan text — brand wordmark accent on dark surfaces (sidebar / sign-in) */
   .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(90deg, hsl(var(--brand-cyan)), hsl(var(--brand-magenta)));
+    color: hsl(var(--brand-cyan));
   }
 
   /* flat cyan fill (buttons, active nav, badges, accents) — was a cyan→magenta
@@ -116,12 +115,9 @@
     color: hsl(var(--warning));
   }
 
-  /* glow shadows (decorative emphasis, e.g. selected card) */
+  /* glow shadow (decorative emphasis, e.g. selected card) */
   .shadow-glow-cyan {
     box-shadow: 0 0 0 1px hsl(186 96% 48% / 0.35), 0 8px 30px -8px hsl(186 96% 48% / 0.35);
-  }
-  .shadow-glow-magenta {
-    box-shadow: 0 0 0 1px hsl(298 90% 59% / 0.35), 0 8px 30px -8px hsl(298 90% 59% / 0.35);
   }
 }
 
@@ -134,7 +130,7 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(220 13% 82%);
+  background: hsl(0 0% 78%);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {

@@ -76,7 +76,7 @@ export default function Schedule() {
   return (
     <div>
       <PageHeader title="Schedule" description="Weekly rota & time-off">
-        <Badge variant="secondary">Week of 8–14 Jun</Badge>
+        <Badge variant="secondary">Week of 8 to 14 Jun</Badge>
         <Button size="sm" onClick={() => setForm({ name: allStaff[0]?.name || '', type: 'Holiday', status: 'Pending', weekDays: [] })}>
           <Plus className="h-3.5 w-3.5" /> Book time off
         </Button>

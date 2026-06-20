@@ -71,7 +71,7 @@ export default function Dashboard() {
   }, [kpis])
 
   const peak = useMemo(
-    () => revenue.reduce((a, b) => (b.revenue > a.revenue ? b : a), revenue[0] || { hour: '—', revenue: 0 }),
+    () => revenue.reduce((a, b) => (b.revenue > a.revenue ? b : a), revenue[0] || { hour: 'N/A', revenue: 0 }),
     [revenue],
   )
   const maxSellerRev = Math.max(...sellers_.map((s) => s.revenue), 1)
@@ -140,7 +140,7 @@ export default function Dashboard() {
                 </p>
               </div>
               <Badge variant="accent" className="gap-1">
-                <ShoppingBag className="h-3 w-3" /> {kpis?.order_count ?? '—'} orders
+                <ShoppingBag className="h-3 w-3" /> {kpis?.order_count ?? 'N/A'} orders
               </Badge>
             </CardHeader>
             <CardContent className="pt-2">
@@ -196,7 +196,7 @@ export default function Dashboard() {
                   <ShoppingBag className="h-4 w-4" />
                 </span>
               </div>
-              <div className="mt-3 text-3xl font-bold tabular-nums">{loading ? '—' : (kpis?.order_count ?? 0)}</div>
+              <div className="mt-3 text-3xl font-bold tabular-nums">{loading ? '…' : (kpis?.order_count ?? 0)}</div>
               <p className="mt-1 text-xs text-muted-foreground">Across all dayparts</p>
             </Card>
             <Card className="flex flex-col justify-between p-5">
@@ -207,7 +207,7 @@ export default function Dashboard() {
                 </span>
               </div>
               <div className="mt-3 text-3xl font-bold tabular-nums">
-                {loading ? '—' : gbp(kpis?.avgOrderValue ?? 0, { decimals: 2 })}
+                {loading ? '…' : gbp(kpis?.avgOrderValue ?? 0, { decimals: 2 })}
               </div>
               <p className="mt-1 text-xs text-muted-foreground">Revenue ÷ orders</p>
             </Card>

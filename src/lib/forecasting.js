@@ -86,7 +86,7 @@ export function buildForecast(data) {
       type: 'busy',
       icon: 'TrendingUp',
       title: `${busiest.dow} ${busiest.date.split(' ').slice(1).join(' ')}: ~+${busiest.deltaPct}% orders expected`,
-      detail: `Prep an extra ~${extraDough} dough balls and add a team member — ${busiest.recommendedStaff} on the floor keeps service fast and labour near ${LABOUR_TARGET}%.`,
+      detail: `Prep an extra ~${extraDough} dough balls and add a team member: ${busiest.recommendedStaff} on the floor keeps service fast and labour near ${LABOUR_TARGET}%.`,
     })
   }
   if (quietest && quietest.deltaPct < -6) {
@@ -95,7 +95,7 @@ export function buildForecast(data) {
       type: 'quiet',
       icon: 'TrendingDown',
       title: `${quietest.dow} ${quietest.date.split(' ').slice(1).join(' ')} is quiet (~${quietest.deltaPct}%)`,
-      detail: `Trim one shift and scale back the stock order — ${quietest.recommendedStaff} staff is plenty and protects your margin on a slow day.`,
+      detail: `Trim one shift and scale back the stock order: ${quietest.recommendedStaff} staff is plenty and protects your margin on a slow day.`,
     })
   }
   const rainDay = next7.find((d) => d.weather.icon === 'rain' && d.weather.demandFactor >= 1.08)
@@ -105,7 +105,7 @@ export function buildForecast(data) {
       type: 'weather',
       icon: 'CloudRain',
       title: `${rainDay.dow} ${rainDay.date.split(' ').slice(1).join(' ')}: ${rainDay.weather.label.toLowerCase()} forecast`,
-      detail: `Delivery orders historically rise ~${round((rainDay.weather.demandFactor - 1) * 100)}% in the wet — roster an extra driver and pre-pack popular bundles.`,
+      detail: `Delivery orders historically rise ~${round((rainDay.weather.demandFactor - 1) * 100)}% in the wet. Roster an extra driver and pre-pack popular bundles.`,
     })
   }
   const eventDay = next7.find((d) => d.event)
@@ -115,7 +115,7 @@ export function buildForecast(data) {
       type: 'event',
       icon: 'CalendarHeart',
       title: `${eventDay.event.name}`,
-      detail: `Expect ~+${round((eventDay.event.factor - 1) * 100)}% on ${eventDay.dow} — feature a sharing bundle and make sure dough, cheese and boxes are well stocked.`,
+      detail: `Expect ~+${round((eventDay.event.factor - 1) * 100)}% on ${eventDay.dow}. Feature a sharing bundle and make sure dough, cheese and boxes are well stocked.`,
     })
   }
 

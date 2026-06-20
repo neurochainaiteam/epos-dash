@@ -181,10 +181,10 @@ export function buildRecommendations(data) {
       insight: `${h.name} (${h.role}) is away for ${h.weeks} week${h.weeks === 1 ? '' : 's'} from ${h.start} to ${h.end}. Plan cover for their shifts now to avoid being short on the line.`,
       data: [
         { label: 'Who', value: h.role },
-        { label: 'Dates', value: `${h.start}–${h.end}` },
+        { label: 'Dates', value: `${h.start} to ${h.end}` },
         { label: 'Length', value: `${h.weeks} wk` },
       ],
-      action: `Arrange cover for ${h.start}–${h.end}, prioritising peak Fri/Sat shifts.`,
+      action: `Arrange cover for ${h.start} to ${h.end}, prioritising peak Fri/Sat shifts.`,
     })
   })
 
@@ -331,7 +331,7 @@ export function buildRecommendations(data) {
       category: 'Sales',
       icon: 'ShoppingBag',
       title: 'Lift average order value',
-      insight: `Average order is ${money2(kpis.avgOrderValue)} across ${kpis.orderCount} orders. ${bestSellers[0].name} pairs naturally with a side and drink, so a checkout nudge can add £1–2 per order.`,
+      insight: `Average order is ${money2(kpis.avgOrderValue)} across ${kpis.orderCount} orders. ${bestSellers[0].name} pairs naturally with a side and drink, so a checkout nudge can add £1 to £2 per order.`,
       data: [
         { label: 'Avg order', value: money2(kpis.avgOrderValue) },
         { label: 'Orders', value: `${kpis.orderCount}` },

@@ -129,8 +129,8 @@ export default function Analytics() {
   const wasteList   = waste   || []
 
   const { peakHour, bestDay, avgLabourPct, wasteByRecipe } = useMemo(() => {
-    const peakHour = hours.reduce((a, b) => (b.revenue > a.revenue ? b : a), hours[0] || { hour: '—', revenue: 0 })
-    const bestDay  = days.reduce((a, b)  => (b.revenue > a.revenue ? b : a), days[0]  || { day:  '—', revenue: 0 })
+    const peakHour = hours.reduce((a, b) => (b.revenue > a.revenue ? b : a), hours[0] || { hour: 'N/A', revenue: 0 })
+    const bestDay  = days.reduce((a, b)  => (b.revenue > a.revenue ? b : a), days[0]  || { day:  'N/A', revenue: 0 })
     const avgLabourPct = labourTrend.length
       ? labourTrend.reduce((s, d) => s + d.labourPct, 0) / labourTrend.length
       : 0
@@ -191,7 +191,7 @@ export default function Analytics() {
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
             <Card className="p-4"><div className="text-xs text-muted-foreground">Peak hour</div><div className="mt-1 text-xl font-bold">{peakHour.hour}</div></Card>
             <Card className="p-4"><div className="text-xs text-muted-foreground">Best day</div><div className="mt-1 text-xl font-bold">{bestDay.day} · {gbp(bestDay.revenue)}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Top seller</div><div className="mt-1 truncate text-base font-bold">{bestSellers[0]?.name ?? '—'}</div></Card>
+            <Card className="p-4"><div className="text-xs text-muted-foreground">Top seller</div><div className="mt-1 truncate text-base font-bold">{bestSellers[0]?.name ?? 'N/A'}</div></Card>
             <Card className="p-4"><div className="text-xs text-muted-foreground">Avg labour %</div><div className="mt-1 text-xl font-bold tabular-nums">{pct(avgLabourPct)}</div></Card>
           </div>
         )}

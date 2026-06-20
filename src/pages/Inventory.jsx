@@ -97,7 +97,7 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyanText"><ImageIcon className="h-6 w-6" /></span>
                 <div>
                   <div className="text-sm font-semibold text-foreground">Drop a receipt photo or click to upload</div>
-                  <div className="text-xs text-muted-foreground">JPG/PNG — a supplier invoice or till receipt</div>
+                  <div className="text-xs text-muted-foreground">JPG/PNG, a supplier invoice or till receipt</div>
                 </div>
               </>
             )}
@@ -105,7 +105,7 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
           </label>
 
           <div className="flex items-center justify-between gap-3">
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><Sparkles className="h-3.5 w-3.5 text-brand-cyanText" /> OCR engine ready — swap in a real model later</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><Sparkles className="h-3.5 w-3.5 text-brand-cyanText" /> OCR engine ready, swap in a real model later</span>
             <div className="flex gap-2">
               {!image && <Button size="sm" variant="outline" onClick={() => setImage('sample')}>Use sample receipt</Button>}
               <Button size="sm" onClick={runOcr} disabled={scanning}>
@@ -113,7 +113,7 @@ function ReceiptUpload({ locationId, onClose, onSaved }) {
               </Button>
             </div>
           </div>
-          {image === 'sample' && <div className="rounded-lg border border-border/60 bg-background/40 p-3 text-center text-xs text-muted-foreground">Sample receipt selected — click "Scan with OCR".</div>}
+          {image === 'sample' && <div className="rounded-lg border border-border/60 bg-background/40 p-3 text-center text-xs text-muted-foreground">Sample receipt selected. Click "Scan with OCR".</div>}
         </div>
       ) : (
         <div className="space-y-4">
@@ -210,7 +210,7 @@ function PriceHistory({ locationId, item, onClose }) {
                 return (
                   <div key={i} className="flex flex-1 flex-col items-center justify-end gap-1" title={`${h.period}: ${gbp(h.cost, { decimals: 2 })} (${h.source})`}>
                     <span className="text-[10px] tabular-nums text-muted-foreground">{gbp(h.cost, { decimals: 2 })}</span>
-                    <div className={cn('w-full rounded-md', isNew ? 'bg-brand-magenta' : i === hist.length - 1 ? 'bg-brand-gradient' : 'bg-brand-cyan/50')} style={{ height: hgt }} />
+                    <div className={cn('w-full rounded-md', isNew ? 'bg-brand-gradient ring-2 ring-brand-cyan ring-offset-1' : i === hist.length - 1 ? 'bg-brand-gradient' : 'bg-brand-cyan/50')} style={{ height: hgt }} />
                     <span className="text-[10px] text-muted-foreground">{h.period?.split(' ')[0]}</span>
                   </div>
                 )
@@ -229,7 +229,7 @@ function PriceHistory({ locationId, item, onClose }) {
             ))}
             {hist.length === 0 && <p className="text-sm text-muted-foreground">No price history recorded yet.</p>}
           </div>
-          <p className="flex items-center gap-1.5 text-xs text-muted-foreground"><Receipt className="h-3.5 w-3.5" /> New prices captured from scanned receipts appear here automatically (magenta).</p>
+          <p className="flex items-center gap-1.5 text-xs text-muted-foreground"><Receipt className="h-3.5 w-3.5" /> New prices captured from scanned receipts appear here automatically, ringed for easy spotting.</p>
         </>)}
       </div>
     </Modal>
@@ -265,7 +265,7 @@ function DraftOrders({ items, onClose }) {
   return (
     <Modal title="Draft supplier orders" onClose={onClose} wide>
       <p className="mb-4 text-sm text-muted-foreground">
-        Items at or below their reorder point, grouped by supplier. Review, then send — each order is drafted automatically and tied to the supplier on the item.
+        Items at or below their reorder point, grouped by supplier. Review, then send: each order is drafted automatically and tied to the supplier on the item.
       </p>
       {groups.length === 0 && <div className="rounded-lg border p-6 text-center text-sm text-muted-foreground">Nothing needs reordering right now.</div>}
       <div className="space-y-4">
@@ -279,7 +279,7 @@ function DraftOrders({ items, onClose }) {
                   <div>
                     <div className="text-sm font-bold text-foreground">{g.supplier}</div>
                     <div className="text-xs text-muted-foreground">
-                      {info.email || '—'} · lead time {info.leadDays ?? '?'} day{info.leadDays === 1 ? '' : 's'} · acct {info.account || '—'}
+                      {info.email || 'N/A'} · lead time {info.leadDays ?? '?'} day{info.leadDays === 1 ? '' : 's'} · acct {info.account || 'N/A'}
                     </div>
                   </div>
                 </div>
@@ -304,7 +304,7 @@ function DraftOrders({ items, onClose }) {
           )
         })}
       </div>
-      <p className="mt-4 text-xs text-muted-foreground">Sending is simulated for this preview — wire to supplier email / EDI later.</p>
+      <p className="mt-4 text-xs text-muted-foreground">Sending is simulated for this preview, wire to supplier email / EDI later.</p>
     </Modal>
   )
 }
@@ -426,7 +426,7 @@ export default function Inventory() {
           onClose={() => setShowUpload(false)}
           onSaved={(scan) => {
             setShowUpload(false)
-            setToast(`Receipt from ${scan.supplier} saved — ${scan.lines.length} prices updated.`)
+            setToast(`Receipt from ${scan.supplier} saved, ${scan.lines.length} prices updated.`)
             setTimeout(() => setToast(null), 4000)
             refetch()
           }}

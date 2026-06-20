@@ -52,7 +52,7 @@ export default function Integrations() {
     await db.updatePlatformAccount(account.id, {
       status:      isConnected ? 'Not connected' : 'Connected',
       ordersToday: isConnected ? 0 : account.ordersToday,
-      lastSync:    isConnected ? '—' : 'just now',
+      lastSync:    isConnected ? 'Never synced' : 'just now',
     })
     setToggling(null)
     refetchAccounts()
@@ -73,7 +73,7 @@ export default function Integrations() {
 
   return (
     <div>
-      <PageHeader title="Integrations" description="Connected delivery platforms — orders flow into the live feed, tagged by platform">
+      <PageHeader title="Integrations" description="Connected delivery platforms: orders flow into the live feed, tagged by platform">
         {loading ? <Skeleton className="h-6 w-28" /> : (
           <Badge variant="accent" className="gap-1.5">
             <Plug className="h-3.5 w-3.5" /> {allAccounts.filter((a) => a.status === 'Connected').length} connected
@@ -168,13 +168,13 @@ export default function Integrations() {
                     </div>
                   )
                 })}
-                {!acctLoading && accts.length === 0 && <p className="py-2 text-sm text-muted-foreground">No accounts yet — add one to start importing orders.</p>}
+                {!acctLoading && accts.length === 0 && <p className="py-2 text-sm text-muted-foreground">No accounts yet. Add one to start importing orders.</p>}
               </CardContent>
             </Card>
           )
         })}
 
-        <p className="text-xs text-muted-foreground">Connections are simulated for this preview — incoming orders are mocked and flow into the Orders feed tagged by platform.</p>
+        <p className="text-xs text-muted-foreground">Connections are simulated for this preview. Incoming orders are mocked and flow into the Orders feed tagged by platform.</p>
       </div>
     </div>
   )

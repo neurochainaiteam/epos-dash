@@ -42,7 +42,7 @@ export default function AppLayout() {
           </button>
           <span className="flex items-center gap-2 font-bold tracking-tight">
             <BrandMark className="h-6 w-6" />
-            NeuroChain <span className="text-gradient">Ai</span>
+            NeuroChain <span className="text-brand-cyanText">Ai</span>
           </span>
         </header>
 

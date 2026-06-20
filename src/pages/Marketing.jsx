@@ -103,7 +103,7 @@ export default function Marketing() {
 
   return (
     <div>
-      <PageHeader title="Marketing" description="SMS campaigns & caller-ID — reach customers and track results">
+      <PageHeader title="Marketing" description="SMS campaigns & caller-ID: reach customers and track results">
         <Button size="sm" onClick={() => setCompose({ name: '', audience: AUDIENCES[0], message: '' })}>
           <Plus className="h-3.5 w-3.5" /> New campaign
         </Button>
@@ -146,7 +146,7 @@ export default function Marketing() {
               </label>
             </div>
             <label className="mt-3 block text-xs font-medium text-muted-foreground">Message
-              <textarea value={compose.message} onChange={(e) => setCompose({ ...compose, message: e.target.value })} rows={3} maxLength={300} placeholder="🍕 Treat yourself tonight — 20% off all pizzas with code…" className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm text-foreground" />
+              <textarea value={compose.message} onChange={(e) => setCompose({ ...compose, message: e.target.value })} rows={3} maxLength={300} placeholder="🍕 Treat yourself tonight: 20% off all pizzas with code…" className="mt-1 w-full rounded-lg border bg-background px-3 py-2 text-sm text-foreground" />
             </label>
             <div className="mt-1 flex items-center justify-between text-xs text-muted-foreground">
               <span>{compose.message.length}/160 chars · {Math.max(1, Math.ceil(compose.message.length / 160))} SMS segment(s)</span>
@@ -176,7 +176,7 @@ export default function Marketing() {
                   {c.sent > 0 ? (
                     <div className="mt-3"><Funnel c={c} /></div>
                   ) : (
-                    <p className="mt-3 text-xs text-muted-foreground">Scheduled — results will appear once it sends.</p>
+                    <p className="mt-3 text-xs text-muted-foreground">Scheduled. Results will appear once it sends.</p>
                   )}
                 </Card>
               ))
@@ -203,7 +203,7 @@ export default function Marketing() {
                     </div>
                     <div className="shrink-0 text-right">
                       <div className="text-xs tabular-nums text-muted-foreground">{call.time}</div>
-                      <div className="text-[11px] text-muted-foreground">{call.durationSec ? `${Math.floor(call.durationSec / 60)}m ${call.durationSec % 60}s` : '—'}</div>
+                      <div className="text-[11px] text-muted-foreground">{call.durationSec ? `${Math.floor(call.durationSec / 60)}m ${call.durationSec % 60}s` : 'N/A'}</div>
                     </div>
                   </div>
                 )

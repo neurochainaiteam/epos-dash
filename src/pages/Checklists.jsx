@@ -66,7 +66,7 @@ export default function Checklists() {
 
   return (
     <div>
-      <PageHeader title="Checklists" description="Opening, closing & cleaning — scheduled, recurring & logged">
+      <PageHeader title="Checklists" description="Opening, closing & cleaning: scheduled, recurring & logged">
         <Badge variant={overallPct === 100 ? 'success' : 'accent'}>{completed}/{totalTasks} done today</Badge>
         <Button variant="outline" size="sm" onClick={resetAll}><RotateCcw className="h-3.5 w-3.5" /> Reset</Button>
       </PageHeader>

@@ -66,7 +66,7 @@ export default function Expenses() {
 
   return (
     <div>
-      <PageHeader title="Expenses" description="Business overheads — manual entry feeds the P&L">
+      <PageHeader title="Expenses" description="Business overheads: manual entry feeds the P&L">
         {loading ? <Skeleton className="h-6 w-28" /> : <Badge variant="accent" className="gap-1.5"><Wallet className="h-3.5 w-3.5" /> {gbp(total)} logged</Badge>}
         <Button size="sm" onClick={() => setForm({ ...BLANK })}><Plus className="h-3.5 w-3.5" /> Add expense</Button>
       </PageHeader>

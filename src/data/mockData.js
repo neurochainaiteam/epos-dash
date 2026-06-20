@@ -230,7 +230,7 @@ function generateOrderHistory(locId) {
       qty = 3
     }
 
-    // spread times across an 11:00–22:59 trading window
+    // spread times across an 11:00 to 22:59 trading window
     const mins = 11 * 60 + ((i * 167) % (12 * 60))
     const hh = String(Math.floor(mins / 60)).padStart(2, '0')
     const mm = String(mins % 60).padStart(2, '0')
@@ -406,12 +406,12 @@ const OPS = {
       { date: '8 Jun', item: 'Chicken wings', qty: '1 kg', reason: 'Over-cooked', cost: 4.5 },
     ],
     staff: [
-      { name: 'Aisha Khan', role: 'Front of House', wage: 11.8, contract: 'Part-time', shifts: { Mon: null, Tue: '16:00–23:00', Wed: '16:00–23:00', Thu: null, Fri: '16:00–23:30', Sat: '16:00–23:30', Sun: '15:00–22:00' } },
-      { name: 'Daniel Osei', role: 'Branch Manager', wage: 16.5, contract: 'Full-time', shifts: { Mon: '11:00–20:00', Tue: '11:00–20:00', Wed: '11:00–20:00', Thu: '11:00–20:00', Fri: '14:00–23:30', Sat: '14:00–23:30', Sun: null } },
-      { name: 'Marek Kowalski', role: 'Head Pizza Chef', wage: 14.0, contract: 'Full-time', shifts: { Mon: '15:00–23:00', Tue: '15:00–23:00', Wed: '15:00–23:00', Thu: null, Fri: '15:00–23:30', Sat: '15:00–23:30', Sun: '14:00–22:00' } },
-      { name: 'Priya Patel', role: 'Pizza Chef', wage: 13.5, contract: 'Full-time', shifts: { Mon: '16:00–23:00', Tue: null, Wed: '16:00–23:00', Thu: '16:00–23:00', Fri: '16:00–23:30', Sat: '16:00–23:30', Sun: '15:00–22:00' } },
-      { name: 'Tom Reeves', role: 'Delivery Driver', wage: 11.44, contract: 'Part-time', shifts: { Mon: null, Tue: '17:00–23:00', Wed: '17:00–23:00', Thu: '17:00–23:00', Fri: '17:00–23:30', Sat: '17:00–23:30', Sun: '16:00–22:00' } },
-      { name: 'Sofia Alves', role: 'Kitchen Porter', wage: 11.44, contract: 'Part-time', shifts: { Mon: '17:00–22:00', Tue: '17:00–22:00', Wed: null, Thu: '17:00–22:00', Fri: '17:00–23:00', Sat: '17:00–23:00', Sun: null } },
+      { name: 'Aisha Khan', role: 'Front of House', wage: 11.8, contract: 'Part-time', shifts: { Mon: null, Tue: '16:00 to 23:00', Wed: '16:00 to 23:00', Thu: null, Fri: '16:00 to 23:30', Sat: '16:00 to 23:30', Sun: '15:00 to 22:00' } },
+      { name: 'Daniel Osei', role: 'Branch Manager', wage: 16.5, contract: 'Full-time', shifts: { Mon: '11:00 to 20:00', Tue: '11:00 to 20:00', Wed: '11:00 to 20:00', Thu: '11:00 to 20:00', Fri: '14:00 to 23:30', Sat: '14:00 to 23:30', Sun: null } },
+      { name: 'Marek Kowalski', role: 'Head Pizza Chef', wage: 14.0, contract: 'Full-time', shifts: { Mon: '15:00 to 23:00', Tue: '15:00 to 23:00', Wed: '15:00 to 23:00', Thu: null, Fri: '15:00 to 23:30', Sat: '15:00 to 23:30', Sun: '14:00 to 22:00' } },
+      { name: 'Priya Patel', role: 'Pizza Chef', wage: 13.5, contract: 'Full-time', shifts: { Mon: '16:00 to 23:00', Tue: null, Wed: '16:00 to 23:00', Thu: '16:00 to 23:00', Fri: '16:00 to 23:30', Sat: '16:00 to 23:30', Sun: '15:00 to 22:00' } },
+      { name: 'Tom Reeves', role: 'Delivery Driver', wage: 11.44, contract: 'Part-time', shifts: { Mon: null, Tue: '17:00 to 23:00', Wed: '17:00 to 23:00', Thu: '17:00 to 23:00', Fri: '17:00 to 23:30', Sat: '17:00 to 23:30', Sun: '16:00 to 22:00' } },
+      { name: 'Sofia Alves', role: 'Kitchen Porter', wage: 11.44, contract: 'Part-time', shifts: { Mon: '17:00 to 22:00', Tue: '17:00 to 22:00', Wed: null, Thu: '17:00 to 22:00', Fri: '17:00 to 23:00', Sat: '17:00 to 23:00', Sun: null } },
     ],
     bookings: [
       { time: '18:00', name: 'Hussain (party)', size: 6, table: 'T4', phone: '07700 900181', status: 'Confirmed' },
@@ -453,11 +453,11 @@ const OPS = {
       { date: '8 Jun', item: 'Ham', qty: '0.5 kg', reason: 'Expired', cost: 2.7 },
     ],
     staff: [
-      { name: 'Mei Lin', role: 'Front of House', wage: 11.6, contract: 'Part-time', shifts: { Mon: null, Tue: '16:00–23:00', Wed: '16:00–23:00', Thu: '16:00–23:00', Fri: '16:00–23:30', Sat: '16:00–23:30', Sun: null } },
-      { name: 'Kevin Tran', role: 'Branch Manager', wage: 16.0, contract: 'Full-time', shifts: { Mon: '12:00–21:00', Tue: '12:00–21:00', Wed: '12:00–21:00', Thu: '12:00–21:00', Fri: '15:00–23:30', Sat: '15:00–23:30', Sun: null } },
-      { name: 'Wei Chen', role: 'Pizza Chef', wage: 14.5, contract: 'Full-time', shifts: { Mon: '16:00–23:00', Tue: '16:00–23:00', Wed: null, Thu: '16:00–23:00', Fri: '16:00–23:30', Sat: '16:00–23:30', Sun: '15:00–22:00' } },
-      { name: 'Jamie Doyle', role: 'Delivery Driver', wage: 11.44, contract: 'Part-time', shifts: { Mon: null, Tue: '17:00–23:00', Wed: '17:00–23:00', Thu: '17:00–23:00', Fri: '17:00–23:30', Sat: '17:00–23:30', Sun: '16:00–22:00' } },
-      { name: 'Lucy Ward', role: 'Kitchen Porter', wage: 11.44, contract: 'Part-time', shifts: { Mon: '17:00–22:00', Tue: null, Wed: '17:00–22:00', Thu: '17:00–22:00', Fri: '17:00–23:00', Sat: '17:00–23:00', Sun: null } },
+      { name: 'Mei Lin', role: 'Front of House', wage: 11.6, contract: 'Part-time', shifts: { Mon: null, Tue: '16:00 to 23:00', Wed: '16:00 to 23:00', Thu: '16:00 to 23:00', Fri: '16:00 to 23:30', Sat: '16:00 to 23:30', Sun: null } },
+      { name: 'Kevin Tran', role: 'Branch Manager', wage: 16.0, contract: 'Full-time', shifts: { Mon: '12:00 to 21:00', Tue: '12:00 to 21:00', Wed: '12:00 to 21:00', Thu: '12:00 to 21:00', Fri: '15:00 to 23:30', Sat: '15:00 to 23:30', Sun: null } },
+      { name: 'Wei Chen', role: 'Pizza Chef', wage: 14.5, contract: 'Full-time', shifts: { Mon: '16:00 to 23:00', Tue: '16:00 to 23:00', Wed: null, Thu: '16:00 to 23:00', Fri: '16:00 to 23:30', Sat: '16:00 to 23:30', Sun: '15:00 to 22:00' } },
+      { name: 'Jamie Doyle', role: 'Delivery Driver', wage: 11.44, contract: 'Part-time', shifts: { Mon: null, Tue: '17:00 to 23:00', Wed: '17:00 to 23:00', Thu: '17:00 to 23:00', Fri: '17:00 to 23:30', Sat: '17:00 to 23:30', Sun: '16:00 to 22:00' } },
+      { name: 'Lucy Ward', role: 'Kitchen Porter', wage: 11.44, contract: 'Part-time', shifts: { Mon: '17:00 to 22:00', Tue: null, Wed: '17:00 to 22:00', Thu: '17:00 to 22:00', Fri: '17:00 to 23:00', Sat: '17:00 to 23:00', Sun: null } },
     ],
     bookings: [
       { time: '18:15', name: 'Nguyen', size: 4, table: 'T2', phone: '07700 900244', status: 'Confirmed' },
@@ -495,10 +495,10 @@ const OPS = {
       { date: '8 Jun', item: 'Mozzarella', qty: '0.3 kg', reason: 'Spoiled', cost: 1.9 },
     ],
     staff: [
-      { name: 'Yusuf Demir', role: 'Front of House', wage: 11.5, contract: 'Part-time', shifts: { Mon: '16:00–23:00', Tue: null, Wed: '16:00–23:00', Thu: '16:00–23:00', Fri: '16:00–00:00', Sat: '16:00–00:00', Sun: '16:00–22:00' } },
-      { name: 'Rob Skinner', role: 'Branch Manager', wage: 15.5, contract: 'Full-time', shifts: { Mon: '14:00–22:00', Tue: '14:00–22:00', Wed: '14:00–22:00', Thu: '14:00–22:00', Fri: '16:00–00:00', Sat: '16:00–00:00', Sun: null } },
-      { name: 'Hassan Ali', role: 'Pizza Chef', wage: 13.0, contract: 'Full-time', shifts: { Mon: '16:00–23:00', Tue: '16:00–23:00', Wed: null, Thu: '16:00–23:00', Fri: '16:00–00:00', Sat: '16:00–00:00', Sun: '16:00–22:00' } },
-      { name: 'Chloe Bennett', role: 'Delivery Driver', wage: 11.44, contract: 'Part-time', shifts: { Mon: null, Tue: '17:00–23:00', Wed: '17:00–23:00', Thu: '17:00–23:00', Fri: '17:00–00:00', Sat: '17:00–00:00', Sun: '17:00–22:00' } },
+      { name: 'Yusuf Demir', role: 'Front of House', wage: 11.5, contract: 'Part-time', shifts: { Mon: '16:00 to 23:00', Tue: null, Wed: '16:00 to 23:00', Thu: '16:00 to 23:00', Fri: '16:00 to 00:00', Sat: '16:00 to 00:00', Sun: '16:00 to 22:00' } },
+      { name: 'Rob Skinner', role: 'Branch Manager', wage: 15.5, contract: 'Full-time', shifts: { Mon: '14:00 to 22:00', Tue: '14:00 to 22:00', Wed: '14:00 to 22:00', Thu: '14:00 to 22:00', Fri: '16:00 to 00:00', Sat: '16:00 to 00:00', Sun: null } },
+      { name: 'Hassan Ali', role: 'Pizza Chef', wage: 13.0, contract: 'Full-time', shifts: { Mon: '16:00 to 23:00', Tue: '16:00 to 23:00', Wed: null, Thu: '16:00 to 23:00', Fri: '16:00 to 00:00', Sat: '16:00 to 00:00', Sun: '16:00 to 22:00' } },
+      { name: 'Chloe Bennett', role: 'Delivery Driver', wage: 11.44, contract: 'Part-time', shifts: { Mon: null, Tue: '17:00 to 23:00', Wed: '17:00 to 23:00', Thu: '17:00 to 23:00', Fri: '17:00 to 00:00', Sat: '17:00 to 00:00', Sun: '17:00 to 22:00' } },
     ],
     bookings: [
       { time: '19:00', name: 'Taylor', size: 4, table: 'T2', phone: '07700 900388', status: 'Confirmed' },
@@ -754,7 +754,7 @@ export const SUPPLIERS = {
   'Drinks Co': { name: 'Drinks Co', email: 'trade@drinksco.co.uk', phone: '0121 555 0666', leadDays: 2, account: 'NC-DR-301' },
 }
 export function getSupplier(name) {
-  return SUPPLIERS[name] || { name, email: '—', phone: '—', leadDays: 3, account: '—' }
+  return SUPPLIERS[name] || { name, email: 'N/A', phone: 'N/A', leadDays: 3, account: 'N/A' }
 }
 
 // Generic per-location mapper for the top-level (non-OPS) datasets below.
@@ -774,7 +774,7 @@ function mapField(MAP, locationId) {
 const PRICE_MONTHS = ['Feb', 'Mar', 'Apr', 'May', 'Jun']
 function basePriceHistory(item) {
   const seed = (item.name || '').length
-  const startCost = item.cost * (1 - 0.1 - (seed % 4) * 0.012) // ~10–14% lower months ago
+  const startCost = item.cost * (1 - 0.1 - (seed % 4) * 0.012) // ~10 to 14% lower months ago
   return PRICE_MONTHS.map((m, idx) => {
     const t = idx / (PRICE_MONTHS.length - 1)
     const cost = Math.round((startCost + (item.cost - startCost) * t) * 100) / 100
@@ -919,17 +919,17 @@ export function getExpenseTotal(locationId) {
 }
 
 // ===========================================================================
-// STAFF TIME-OFF / HOLIDAY BOOKING (overlays on the rota, week of 8–14 Jun)
+// STAFF TIME-OFF / HOLIDAY BOOKING (overlays on the rota, week of 8 to 14 Jun)
 // ===========================================================================
 export const TIME_OFF_TYPES = ['Holiday', 'Sick', 'Unpaid', 'Training']
 const TIME_OFF = {
   bham: [
-    { name: 'Sofia Alves', role: 'Kitchen Porter', type: 'Holiday', status: 'Approved', label: '13–14 Jun', weekDays: ['Sat', 'Sun'], days: 2 },
+    { name: 'Sofia Alves', role: 'Kitchen Porter', type: 'Holiday', status: 'Approved', label: '13 to 14 Jun', weekDays: ['Sat', 'Sun'], days: 2 },
     { name: 'Tom Reeves', role: 'Delivery Driver', type: 'Sick', status: 'Approved', label: '11 Jun', weekDays: ['Wed'], days: 1 },
-    { name: 'Marek Kowalski', role: 'Head Pizza Chef', type: 'Holiday', status: 'Pending', label: '16–30 Jun', weekDays: [], days: 14 },
+    { name: 'Marek Kowalski', role: 'Head Pizza Chef', type: 'Holiday', status: 'Pending', label: '16 to 30 Jun', weekDays: [], days: 14 },
   ],
   leic: [
-    { name: 'Mei Lin', role: 'Front of House', type: 'Holiday', status: 'Pending', label: '12–13 Jun', weekDays: ['Fri', 'Sat'], days: 2 },
+    { name: 'Mei Lin', role: 'Front of House', type: 'Holiday', status: 'Pending', label: '12 to 13 Jun', weekDays: ['Fri', 'Sat'], days: 2 },
   ],
   cov: [
     { name: 'Chloe Bennett', role: 'Delivery Driver', type: 'Holiday', status: 'Approved', label: '14 Jun', weekDays: ['Sun'], days: 1 },
@@ -992,7 +992,7 @@ const PLATFORM_ACCOUNTS = {
   bham: [
     { platform: 'justeat', accountName: 'Sparkhill Pizza', storeId: 'JE-7741', status: 'Connected', ordersToday: 23, lastSync: '2 min ago' },
     { platform: 'ubereats', accountName: 'Sparkhill Pizza', storeId: 'UE-9920', status: 'Connected', ordersToday: 17, lastSync: '1 min ago' },
-    { platform: 'ubereats', accountName: 'Sparkhill — Late Menu', storeId: 'UE-9921', status: 'Action needed', ordersToday: 0, lastSync: '—' },
+    { platform: 'ubereats', accountName: 'Sparkhill: Late Menu', storeId: 'UE-9921', status: 'Action needed', ordersToday: 0, lastSync: 'Never synced' },
     { platform: 'deliveroo', accountName: 'Sparkhill Pizza', storeId: 'DL-3380', status: 'Connected', ordersToday: 14, lastSync: '4 min ago' },
     { platform: 'foodhub', accountName: 'Sparkhill Pizza', storeId: 'FH-1102', status: 'Connected', ordersToday: 6, lastSync: '6 min ago' },
   ],
@@ -1000,12 +1000,12 @@ const PLATFORM_ACCOUNTS = {
     { platform: 'justeat', accountName: 'Belgrave Pizza', storeId: 'JE-5510', status: 'Connected', ordersToday: 18, lastSync: '3 min ago' },
     { platform: 'ubereats', accountName: 'Belgrave Pizza', storeId: 'UE-7741', status: 'Connected', ordersToday: 12, lastSync: '2 min ago' },
     { platform: 'deliveroo', accountName: 'Belgrave Pizza', storeId: 'DL-2204', status: 'Connected', ordersToday: 9, lastSync: '5 min ago' },
-    { platform: 'foodhub', accountName: 'Belgrave Pizza', storeId: 'FH-0907', status: 'Action needed', ordersToday: 0, lastSync: '—' },
+    { platform: 'foodhub', accountName: 'Belgrave Pizza', storeId: 'FH-0907', status: 'Action needed', ordersToday: 0, lastSync: 'Never synced' },
   ],
   cov: [
     { platform: 'justeat', accountName: 'City Centre Pizza', storeId: 'JE-9912', status: 'Connected', ordersToday: 15, lastSync: '1 min ago' },
     { platform: 'ubereats', accountName: 'City Centre Pizza', storeId: 'UE-3318', status: 'Connected', ordersToday: 11, lastSync: '3 min ago' },
-    { platform: 'deliveroo', accountName: 'City Centre Pizza', storeId: 'DL-7740', status: 'Not connected', ordersToday: 0, lastSync: '—' },
+    { platform: 'deliveroo', accountName: 'City Centre Pizza', storeId: 'DL-7740', status: 'Not connected', ordersToday: 0, lastSync: 'Never synced' },
   ],
 }
 export function getPlatformAccounts(locationId) {
@@ -1044,7 +1044,7 @@ const MARKETING = {
   },
   leic: {
     campaigns: [
-      { id: 'C-401', name: 'Belgrave Loyalty Launch', date: '02 Jun 2026', audience: 'All opted-in', sent: 880, delivered: 861, opened: 402, redeemed: 57, status: 'Completed', message: 'Belgrave reward club is live 🎉 Collect a stamp on every order — your 6th pizza is on us.' },
+      { id: 'C-401', name: 'Belgrave Loyalty Launch', date: '02 Jun 2026', audience: 'All opted-in', sent: 880, delivered: 861, opened: 402, redeemed: 57, status: 'Completed', message: 'Belgrave reward club is live 🎉 Collect a stamp on every order, your 6th pizza is on us.' },
       { id: 'C-402', name: 'Match Day Meal Deal', date: '08 Jun 2026', audience: 'Delivery customers', sent: 610, delivered: 598, opened: 281, redeemed: 49, status: 'Completed', message: 'Big game tonight ⚽ Pizza + wings + drink £14.99. Order before kick-off!' },
     ],
     calls: [
@@ -1125,14 +1125,14 @@ export const FORECAST_CALENDAR = [
 export const WEATHER_FORECAST = [
   { icon: 'sun', label: 'Sunny', tempC: 23, demandFactor: 1.03, note: 'Warm & dry' },
   { icon: 'cloud', label: 'Cloudy', tempC: 19, demandFactor: 1.0, note: 'Overcast' },
-  { icon: 'rain', label: 'Heavy rain', tempC: 15, demandFactor: 1.15, note: 'Rain forecast — delivery orders historically rise ~15%' },
+  { icon: 'rain', label: 'Heavy rain', tempC: 15, demandFactor: 1.15, note: 'Rain forecast: delivery orders historically rise ~15%' },
   { icon: 'rain', label: 'Showers', tempC: 16, demandFactor: 1.08, note: 'Scattered showers lift delivery' },
   { icon: 'cloud', label: 'Cloudy', tempC: 18, demandFactor: 1.0, note: 'Overcast' },
   { icon: 'sun', label: 'Sunny', tempC: 22, demandFactor: 1.02, note: 'Pleasant evening' },
   { icon: 'cloud', label: 'Cloudy', tempC: 20, demandFactor: 1.0, note: 'Mild' },
   { icon: 'sun', label: 'Sunny', tempC: 24, demandFactor: 1.03, note: 'Warm & dry' },
   { icon: 'cloud', label: 'Cloudy', tempC: 19, demandFactor: 1.0, note: 'Overcast' },
-  { icon: 'rain', label: 'Rain', tempC: 14, demandFactor: 1.12, note: 'Wet evening — strong delivery demand' },
+  { icon: 'rain', label: 'Rain', tempC: 14, demandFactor: 1.12, note: 'Wet evening: strong delivery demand' },
   { icon: 'sun', label: 'Sunny', tempC: 21, demandFactor: 1.02, note: 'Bright spells' },
   { icon: 'cloud', label: 'Cloudy', tempC: 18, demandFactor: 1.0, note: 'Mild' },
   { icon: 'sun', label: 'Sunny', tempC: 23, demandFactor: 1.03, note: 'Warm & dry' },
@@ -1140,7 +1140,7 @@ export const WEATHER_FORECAST = [
 ]
 // Local events that bump demand, keyed by FORECAST_CALENDAR index.
 export const LOCAL_EVENTS = {
-  2: { name: 'Local football — Sat fixture', factor: 1.1 },
+  2: { name: 'Local football, Sat fixture', factor: 1.1 },
   3: { name: 'Father’s Day', factor: 1.12 },
   9: { name: 'Payday weekend', factor: 1.06 },
 }

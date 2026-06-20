@@ -35,7 +35,7 @@ export default function Permissions() {
 
   return (
     <div>
-      <PageHeader title="User Permissions" description="Control which pages each role can see — changes apply live across the app">
+      <PageHeader title="User Permissions" description="Control which pages each role can see: changes apply live across the app">
         <Badge variant="accent" className="gap-1.5"><ShieldCheck className="h-3.5 w-3.5" /> Director control</Badge>
         <Button size="sm" variant="outline" onClick={resetPermissions}><RotateCcw className="h-3.5 w-3.5" /> Reset to defaults</Button>
       </PageHeader>
@@ -109,7 +109,7 @@ export default function Permissions() {
           <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-cyanText" />
           <span>
             Toggles are driven from the central roles config. Director access is structural and can’t be edited away.
-            Staff and Manager rows can be granted any page within their tier — changes update the sidebar and route guards immediately.
+            Staff and Manager rows can be granted any page within their tier. Changes update the sidebar and route guards immediately.
           </span>
         </div>
       </div>

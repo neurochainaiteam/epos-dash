@@ -33,7 +33,7 @@ function InsightCard({ card }) {
         </span>
       </div>
 
-      <h3 className="rec-title mt-4 text-[15px] font-bold leading-snug tracking-tight">{card.title}</h3>
+      <h3 className={cn('mt-4 text-[15px] font-bold leading-snug tracking-tight', card.type === 'watch' ? 'rec-title' : 'text-foreground')}>{card.title}</h3>
       <p className="mt-1.5 flex-1 text-sm leading-relaxed text-foreground/80">{card.insight}</p>
 
       <div className="mt-4 grid grid-cols-3 gap-2">
@@ -88,7 +88,7 @@ export default function Recommendations() {
     <div>
       <PageHeader
         title="Recommendations"
-        description="Your smart business advisor — insights generated from this branch's live numbers"
+        description="Your smart business advisor: insights generated from this branch's live numbers"
       >
         {loading ? <Skeleton className="h-6 w-24" /> : (
           <Badge variant="accent" className="gap-1.5">

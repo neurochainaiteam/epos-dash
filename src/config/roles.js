@@ -29,7 +29,7 @@ export const ROLE_META = {
   },
   [ROLES.MANAGER]: {
     label: 'Manager',
-    blurb: 'Full single-site operations — inventory, waste, analytics & forecasting.',
+    blurb: 'Full single-site operations: inventory, waste, analytics & forecasting.',
     sampleName: 'Daniel Osei',
     jobTitle: 'Branch Manager',
   },

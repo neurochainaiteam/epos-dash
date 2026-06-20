@@ -825,7 +825,7 @@ export async function insertPlatformAccount(locationId, account) {
       store_id:     account.storeId || '',
       status:       account.status || 'Action needed',
       orders_today: 0,
-      last_sync:    '—',
+      last_sync:    'Never synced',
     })
     .select()
     .single()
@@ -843,7 +843,7 @@ export async function fetchSupplier(name) {
     .eq('name', name)
     .maybeSingle()
   if (error) return err(error)
-  if (!data) return ok({ name, email: '—', phone: '—', leadDays: 3, account: '—' })
+  if (!data) return ok({ name, email: 'N/A', phone: 'N/A', leadDays: 3, account: 'N/A' })
   return ok({ name: data.name, email: data.email, phone: data.phone, leadDays: data.lead_days, account: data.account_ref })
 }
 

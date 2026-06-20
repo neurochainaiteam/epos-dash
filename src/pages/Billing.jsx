@@ -67,7 +67,7 @@ export default function Billing() {
           </div>
           <div className="mt-3 flex items-center gap-2 rounded-lg border border-warning/20 bg-warning/5 p-3 text-sm">
             <Wrench className="h-4 w-4 shrink-0 text-warning" />
-            <span className="text-foreground/85">One-off onboarding & setup service: <span className="font-semibold text-foreground">{gbp(SETUP_FEE.min)}–{gbp(SETUP_FEE.max)}</span> (menu import, EPOS connection & staff training).</span>
+            <span className="text-foreground/85">One-off onboarding & setup service: <span className="font-semibold text-foreground">{gbp(SETUP_FEE.min)} to {gbp(SETUP_FEE.max)}</span> (menu import, EPOS connection & staff training).</span>
           </div>
         </div>
 

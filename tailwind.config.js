@@ -59,8 +59,8 @@ export default {
         },
       },
       boxShadow: {
+        card: '0 2px 8px rgba(0,0,0,0.06)',
         'glow-cyan': '0 0 0 1px rgba(5,215,238,0.3), 0 8px 30px -8px rgba(5,215,238,0.45)',
-        'glow-magenta': '0 0 0 1px rgba(239,54,245,0.3), 0 8px 30px -8px rgba(239,54,245,0.45)',
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -119,7 +119,7 @@ export default function Bookings() {
 
         {view === 'map' ? (
           <>
-            {locationId === 'all' && <p className="text-xs text-muted-foreground">Floor map shows {locationName('bham')} — switch to a single location to see each branch's plan.</p>}
+            {locationId === 'all' && <p className="text-xs text-muted-foreground">Floor map shows {locationName('bham')}. Switch to a single location to see each branch's plan.</p>}
             <FloorMap tables={tables} />
           </>
         ) : (
