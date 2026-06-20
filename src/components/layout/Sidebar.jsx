@@ -8,7 +8,7 @@ import {
 import { cn } from '@/lib/utils'
 import { useApp } from '@/context/AppContext'
 import { ROLE_META } from '@/config/roles'
-import BrandMark from '@/components/BrandMark'
+import logoFull from '@/assets/neurochain-logo-full.png'
 import LocationSwitcher from './LocationSwitcher'
 
 const ICONS = {
@@ -53,17 +53,10 @@ export default function Sidebar({ onNavigate, onClose }) {
   return (
     <div className="flex h-full flex-col bg-sidebar">
       {/* Brand */}
-      <div className="flex items-center justify-between px-5 pb-3 pt-5">
-        <div className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-sidebar-accent/10 ring-1 ring-sidebar-accent/30">
-            <BrandMark className="h-7 w-7" />
-          </span>
-          <div className="leading-tight">
-            <div className="text-[15px] font-bold tracking-tight text-white">
-              NeuroChain <span className="text-gradient">Ai</span>
-            </div>
-            <div className="text-[11px] font-medium text-sidebar-foreground">Operations &amp; P&amp;L</div>
-          </div>
+      <div className="flex items-start justify-between px-5 pb-3 pt-5">
+        <div>
+          <img src={logoFull} alt="NeuroChain Ai" className="max-w-[120px]" />
+          <div className="mt-1.5 text-[11px] font-light text-white">Operations &amp; P&amp;L</div>
         </div>
         {onClose && (
           <button
