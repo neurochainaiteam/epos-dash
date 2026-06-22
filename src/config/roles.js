@@ -54,7 +54,7 @@ export const PAGES = [
   { key: 'dashboard', label: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard', group: 'main' },
   { key: 'orders', label: 'Orders', path: '/orders', icon: 'ReceiptText', group: 'main' },
   { key: 'pnl', label: 'P&L', path: '/pnl', icon: 'TrendingUp', group: 'main' },
-  { key: 'inventory', label: 'Inventory', path: '/inventory', icon: 'Boxes', group: 'main' },
+  { key: 'inventory', label: 'Inventory', path: '/inventory', icon: 'Package', group: 'main' },
   { key: 'recipes', label: 'Recipes', path: '/recipes', icon: 'CookingPot', group: 'main' },
   { key: 'waste', label: 'Waste', path: '/waste', icon: 'Trash2', group: 'main' },
   // Schedule was merged into Staff (single "Staff & Schedule" nav item).

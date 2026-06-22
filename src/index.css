@@ -117,6 +117,15 @@
   .shadow-glow-cyan {
     box-shadow: 0 0 0 1px hsl(186 96% 48% / 0.35), 0 8px 30px -8px hsl(186 96% 48% / 0.35);
   }
+
+  /* Hover lift — every Card/bento box floats up slightly on hover. */
+  .card-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
 }
 
 /* Thin, subtle scrollbars (light) */

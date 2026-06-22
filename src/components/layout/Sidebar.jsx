@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import {
-  LayoutDashboard, ReceiptText, TrendingUp, Boxes, CookingPot, Trash2, Users,
+  LayoutDashboard, ReceiptText, TrendingUp, Package, CookingPot, Trash2, Users,
   CalendarDays, ListChecks, BookMarked, BarChart3, Sparkles, CreditCard, Settings,
   LineChart, MessageSquare, Wallet, Plug, ShieldCheck,
   LogOut, X,
@@ -8,11 +8,12 @@ import {
 import { cn } from '@/lib/utils'
 import { useApp } from '@/context/AppContext'
 import { ROLE_META } from '@/config/roles'
-import logoFull from '@/assets/neurochain-logo-full.png'
+import logoIcon from '@/assets/neurochain-logo-icon.png'
+import logoText from '@/assets/neurochain-logo-text.png'
 import LocationSwitcher from './LocationSwitcher'
 
 const ICONS = {
-  LayoutDashboard, ReceiptText, TrendingUp, Boxes, CookingPot, Trash2, Users,
+  LayoutDashboard, ReceiptText, TrendingUp, Package, CookingPot, Trash2, Users,
   CalendarDays, ListChecks, BookMarked, BarChart3, Sparkles, CreditCard, Settings,
   LineChart, MessageSquare, Wallet, Plug, ShieldCheck,
 }
@@ -54,9 +55,12 @@ export default function Sidebar({ onNavigate, onClose }) {
     <div className="flex h-full flex-col bg-sidebar">
       {/* Brand */}
       <div className="flex items-start justify-between px-5 pb-3 pt-2.5">
-        <div>
-          <img src={logoFull} alt="NeuroChain Ai" className="max-w-[120px]" />
-          <div className="mt-0.5 text-[11px] font-light text-white">Operations &amp; P&amp;L</div>
+        <div className="flex items-start gap-2">
+          <img src={logoIcon} alt="" className="h-7 w-auto shrink-0" />
+          <div>
+            <img src={logoText} alt="NeuroChain Ai" className="h-[9px] w-auto" />
+            <div className="mt-0.5 text-[11px] font-light text-white">Operations &amp; P&amp;L</div>
+          </div>
         </div>
         {onClose && (
           <button
