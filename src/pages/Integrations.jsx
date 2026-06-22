@@ -152,7 +152,7 @@ export default function Integrations() {
                   return (
                     <div key={a.id} className="flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3">
                       <div className="flex items-center gap-3">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-muted text-muted-foreground"><Store className="h-4 w-4" /></span>
+                        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyanText"><Store className="h-4 w-4" /></span>
                         <div>
                           <div className="text-sm font-medium text-foreground">{a.accountName}</div>
                           <div className="text-xs text-muted-foreground">Store {a.storeId}{locationId === 'all' && a.location ? ` · ${a.location}` : ''} · synced {a.lastSync}</div>

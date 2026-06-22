@@ -80,7 +80,7 @@ export default function Orders() {
       <PageHeader title="Orders" description="EPOS order feed">
         {isStaff && (
           <Badge variant="secondary" className="gap-1.5">
-            <Eye className="h-3.5 w-3.5 text-brand-cyan" /> View only
+            <Eye className="h-3.5 w-3.5 text-brand-cyanText" /> View only
           </Badge>
         )}
       </PageHeader>
@@ -125,7 +125,7 @@ export default function Orders() {
             </select>
           </div>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-cyan" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-cyanText" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -178,7 +178,7 @@ export default function Orders() {
                       <td className="px-4 text-center tabular-nums">{o.qty}</td>
                       <td className="px-4">
                         <span className="inline-flex items-center gap-1.5 text-sm">
-                          {o.payment === 'Card' ? <CreditCard className="h-3.5 w-3.5 text-brand-cyan" /> : <Banknote className="h-3.5 w-3.5 text-brand-cyan" />}
+                          {o.payment === 'Card' ? <CreditCard className="h-3.5 w-3.5 text-brand-cyanText" /> : <Banknote className="h-3.5 w-3.5 text-brand-cyanText" />}
                           {o.payment}
                         </span>
                       </td>

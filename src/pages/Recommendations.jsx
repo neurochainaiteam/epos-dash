@@ -34,31 +34,33 @@ const LEVEL_STYLE = {
 function InsightCard({ card }) {
   const Icon = ICONS[card.icon] || Sparkles
   return (
-    <Card className="flex flex-col border-border/70 transition-all hover:border-brand-cyan/40 hover:shadow-glow-cyan">
+    <Card className="flex flex-col border-border/70 p-7 transition-all hover:border-brand-cyan/40 hover:shadow-glow-cyan">
       <div className="flex items-center gap-3">
         <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-cyan/10 ring-1 ring-brand-cyan/25">
-          <Icon className="h-[22px] w-[22px] text-brand-cyan" />
+          <Icon className="h-[22px] w-[22px] text-brand-cyanText" />
         </span>
         <span className="rounded-full border border-border/70 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
           {card.category}
         </span>
       </div>
 
-      <h3 className={cn('mt-4 text-[15px] font-bold leading-snug tracking-tight', card.type === 'watch' ? 'rec-title' : 'text-foreground')}>{card.title}</h3>
+      <h3 className={cn('mt-6 text-[15px] font-bold leading-snug tracking-tight', card.type === 'watch' ? 'rec-title' : 'text-foreground')}>{card.title}</h3>
       <p className="mt-1.5 flex-1 text-sm leading-relaxed text-foreground/80">{card.insight}</p>
 
-      <div className="mt-4 grid grid-cols-3 gap-2">
+      <div className="mt-6 grid grid-cols-3 gap-4">
         {card.data.map((d) => (
-          <div key={d.label} className="rounded-lg border border-border/60 bg-background/50 px-2.5 py-2">
+          <div key={d.label} className="rounded-lg border border-border/60 bg-background/50 p-4">
             <div className="truncate text-[10px] font-medium uppercase tracking-wide text-muted-foreground">{d.label}</div>
             <div className="mt-0.5 truncate text-sm font-semibold tabular-nums text-foreground">{d.value}</div>
           </div>
         ))}
       </div>
 
-      <div className="mt-4 flex items-start gap-2 rounded-lg border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-2.5">
-        <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-brand-cyan" />
-        <span className="text-sm font-medium text-foreground">{card.action}</span>
+      <div className="mt-6 border-t border-[#E1E1E1] pt-4">
+        <div className="flex items-start gap-2 rounded-lg border border-brand-cyan/20 bg-brand-cyan/5 px-3 py-2.5">
+          <ArrowRight className="mt-0.5 h-4 w-4 shrink-0 text-brand-cyanText" />
+          <span className="text-sm font-medium text-foreground">{card.action}</span>
+        </div>
       </div>
     </Card>
   )
@@ -67,8 +69,8 @@ function InsightCard({ card }) {
 function StatCard({ icon: Icon, label, value, sub }) {
   return (
     <Card className="p-6">
-      <div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Icon className="h-3.5 w-3.5 text-brand-cyan" />{label}</div>
-      <div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{value}</div>
+      <div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Icon className="h-3.5 w-3.5 text-brand-cyanText" />{label}</div>
+      <div className="mt-1 text-xl font-bold tabular-nums text-brand-cyanText">{value}</div>
       {sub && <div className="mt-0.5 text-xs text-muted-foreground">{sub}</div>}
     </Card>
   )
@@ -151,14 +153,14 @@ export default function Recommendations() {
         <Card className="relative overflow-hidden border-brand-cyan/20 p-6">
           <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-violet text-brand-cyan shadow-glow-cyan">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-cyan/10 text-brand-cyanText shadow-glow-cyan">
                 <Sparkles className="h-6 w-6" />
               </span>
               <div>
                 <div className="text-xs text-muted-foreground">For {locationName(locationId)}</div>
                 {loading ? <Skeleton className="mt-1 h-6 w-48" /> : (
                   <div className="text-xl font-bold text-foreground">
-                    <span className="text-brand-cyan">{counts.opportunities} opportunities</span>
+                    <span className="text-brand-cyanText">{counts.opportunities} opportunities</span>
                     <span className="text-muted-foreground"> · </span>
                     <span className="rec-title">{counts.warnings} things to watch</span>
                   </div>
@@ -168,7 +170,7 @@ export default function Recommendations() {
             {!loading && (
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-2 rounded-xl border border-brand-cyan/25 bg-brand-cyan/5 px-3 py-2">
-                  <Lightbulb className="h-4 w-4 text-brand-cyan" />
+                  <Lightbulb className="h-4 w-4 text-brand-cyanText" />
                   <span className="text-sm font-semibold tabular-nums text-foreground">{counts.opportunities}</span>
                   <span className="text-xs text-muted-foreground">to act on</span>
                 </div>
@@ -202,7 +204,7 @@ export default function Recommendations() {
 
         {/* ---- Demand Forecast (merged from the former Forecasting page) ---- */}
         <div className="flex items-center gap-3 pt-2">
-          <h2 className="shrink-0 text-lg font-bold text-brand-cyan">Demand Forecast</h2>
+          <h2 className="shrink-0 text-lg font-bold text-brand-cyanText">Demand Forecast</h2>
           <div className="h-px flex-1 bg-border" />
         </div>
 
@@ -217,13 +219,13 @@ export default function Recommendations() {
             <Card className="relative overflow-hidden border-brand-cyan/20 p-6">
               <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-violet text-brand-cyan shadow-glow-cyan">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-cyan/10 text-brand-cyanText shadow-glow-cyan">
                     <Brain className="h-6 w-6" />
                   </span>
                   <div>
                     <div className="text-xs text-muted-foreground">Forecast for {locationName(locationId)} · next 7 days</div>
                     <div className="text-xl font-bold text-foreground">
-                      <span className="text-brand-cyan">{fc.summary.next7Orders.toLocaleString()} orders</span>
+                      <span className="text-brand-cyanText">{fc.summary.next7Orders.toLocaleString()} orders</span>
                       <span className="text-muted-foreground"> · </span>
                       <span className="text-foreground">{gbp(fc.summary.next7Revenue)}</span>
                       <span className="text-muted-foreground"> projected</span>
@@ -242,13 +244,13 @@ export default function Recommendations() {
             </div>
 
             <div>
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-brand-cyan">Actionable prep callouts</h2>
+              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-brand-cyanText">Actionable prep callouts</h2>
               <div className="grid gap-3 md:grid-cols-2">
                 {fc.callouts.map((c) => {
                   const Icon = CALLOUT_ICONS[c.icon] || Sparkles
                   return (
                     <Card key={c.id} className="flex items-start gap-3 p-6">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-violet text-brand-cyan">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyanText">
                         <Icon className="h-5 w-5" />
                       </span>
                       <div>
@@ -264,7 +266,7 @@ export default function Recommendations() {
             <Card className="p-6">
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div>
-                  <h2 className="text-base font-bold text-brand-cyan">Demand forecast · next 14 days</h2>
+                  <h2 className="text-base font-bold text-brand-cyanText">Demand forecast · next 14 days</h2>
                   <p className="text-xs text-muted-foreground">Predicted revenue per day. Busy days highlighted, weekends marked</p>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-muted-foreground">
@@ -289,7 +291,7 @@ export default function Recommendations() {
                         style={{ height: h }}
                         title={`${d.date}: ~${d.predictedOrders} orders · ${gbp(d.predictedRevenue)} (${d.deltaPct >= 0 ? '+' : ''}${d.deltaPct}%)`}
                       />
-                      <W className={cn('h-3.5 w-3.5', d.weather.icon === 'rain' ? 'text-brand-cyan' : 'text-muted-foreground')} />
+                      <W className={cn('h-3.5 w-3.5', d.weather.icon === 'rain' ? 'text-brand-cyanText' : 'text-muted-foreground')} />
                       <div className="text-center leading-tight">
                         <div className="text-[10px] font-semibold text-foreground">{d.dow}</div>
                         <div className="text-[9px] text-muted-foreground">{d.date.split(' ')[1]}</div>
@@ -303,8 +305,8 @@ export default function Recommendations() {
             <div className="grid gap-4 lg:grid-cols-2">
               <Card className="p-6">
                 <div className="flex items-center gap-2">
-                  <PackageX className="h-4 w-4 text-brand-cyan" />
-                  <h2 className="text-base font-bold text-brand-cyan">Inventory forecast</h2>
+                  <PackageX className="h-4 w-4 text-brand-cyanText" />
+                  <h2 className="text-base font-bold text-brand-cyanText">Inventory forecast</h2>
                 </div>
                 <p className="mt-1 text-xs text-muted-foreground">Predicted usage & run-out dates for the items running down fastest</p>
                 <div className="mt-4 space-y-2">
@@ -320,7 +322,7 @@ export default function Recommendations() {
                         <div className="text-sm font-semibold text-destructive">
                           {it.runOutDate ? `Out by ${it.runOutDate.split(' ').slice(1).join(' ')}` : '> 2 weeks'}
                         </div>
-                        <div className="text-xs text-brand-cyan">Order ~{it.suggestedQty} {it.unit}</div>
+                        <div className="text-xs text-brand-cyanText">Order ~{it.suggestedQty} {it.unit}</div>
                       </div>
                     </div>
                   ))}
@@ -330,8 +332,8 @@ export default function Recommendations() {
 
               <Card className="p-6">
                 <div className="flex items-center gap-2">
-                  <Users2 className="h-4 w-4 text-brand-cyan" />
-                  <h2 className="text-base font-bold text-brand-cyan">Staffing suggestions</h2>
+                  <Users2 className="h-4 w-4 text-brand-cyanText" />
+                  <h2 className="text-base font-bold text-brand-cyanText">Staffing suggestions</h2>
                 </div>
                 <p className="mt-1 text-xs text-muted-foreground">Recommended team per day to meet demand and hold labour ≤ {fc.summary.labourTarget}%</p>
                 <div className="mt-4 space-y-1.5">
@@ -360,7 +362,7 @@ export default function Recommendations() {
               if (!rain) return null
               return (
                 <Card className="flex items-start gap-3 p-6">
-                  <CloudRain className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyan" />
+                  <CloudRain className="mt-0.5 h-5 w-5 shrink-0 text-brand-cyanText" />
                   <div className="text-sm">
                     <span className="font-semibold text-foreground">Seasonal factor, {rain.dow} {rain.date.split(' ').slice(1).join(' ')}:</span>{' '}
                     <span className="text-foreground/80">{rain.note}. We've already factored this into the demand and staffing figures above.</span>

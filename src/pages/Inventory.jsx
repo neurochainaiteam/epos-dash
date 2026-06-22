@@ -350,10 +350,10 @@ export default function Inventory() {
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-brand-cyan"><PackageCheck className="h-3.5 w-3.5" />Tracked items</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{allItems.length}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-brand-cyanText"><PackageCheck className="h-3.5 w-3.5" />Tracked items</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyanText">{allItems.length}</div></Card>
             <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-destructive"><PackageX className="h-3.5 w-3.5" />Low stock</div><div className="mt-1 text-xl font-bold tabular-nums text-destructive">{low.length}</div></Card>
             <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-destructive"><AlertTriangle className="h-3.5 w-3.5" />Reorder soon</div><div className="mt-1 text-xl font-bold tabular-nums text-destructive">{reorder.length}</div></Card>
-            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-brand-cyan"><PackageCheck className="h-3.5 w-3.5" />Stock value</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{gbp(stockValue)}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-brand-cyanText"><PackageCheck className="h-3.5 w-3.5" />Stock value</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyanText">{gbp(stockValue)}</div></Card>
           </div>
         )}
 

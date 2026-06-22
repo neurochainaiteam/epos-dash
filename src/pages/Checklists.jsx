@@ -90,7 +90,7 @@ export default function Checklists() {
                   <div key={s.section} className="rounded-xl border border-border/70 bg-background/40 p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-sm font-bold text-foreground">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent text-accent-foreground"><Icon className="h-3.5 w-3.5" /></span>
+                        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyanText"><Icon className="h-3.5 w-3.5" /></span>
                         {s.section}
                       </div>
                       <Toggle on={s.active} onClick={() => updateSchedule(s.section, { active: !s.active })} />
@@ -138,7 +138,7 @@ export default function Checklists() {
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between">
                       <CardTitle className="flex items-center gap-2 text-base">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-accent-foreground"><Icon className="h-4 w-4" /></span>
+                        <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyanText"><Icon className="h-4 w-4" /></span>
                         {sec.section}
                       </CardTitle>
                       <span className="text-sm font-semibold tabular-nums text-muted-foreground">{pct}%</span>

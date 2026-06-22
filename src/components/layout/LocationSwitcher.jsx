@@ -63,7 +63,7 @@ export default function LocationSwitcher() {
                 o.id === locationId && 'bg-accent/60',
               )}
             >
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-brand-cyan/10 text-brand-cyanText">
                 {o.id === ALL_LOCATIONS_ID ? <Building2 className="h-3.5 w-3.5" /> : <MapPin className="h-3.5 w-3.5" />}
               </span>
               <span className="min-w-0 flex-1">

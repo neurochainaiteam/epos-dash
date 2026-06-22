@@ -14,7 +14,7 @@ const badgeVariants = cva(
         warning: 'border-transparent bg-[#FEF3C7] text-warning',
         destructive: 'border-transparent bg-[#FEE2E2] text-destructive',
         // Cyan pill — primary accent (e.g. "All locations", insight counts).
-        accent: 'border-transparent bg-[#ECFEFF] text-brand-cyan',
+        accent: 'border-transparent bg-[#ECFEFF] text-brand-cyanText',
       },
     },
     defaultVariants: {

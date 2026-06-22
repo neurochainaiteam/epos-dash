@@ -192,7 +192,7 @@ export default function Dashboard() {
             <Card className="flex flex-col justify-between p-6">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Orders today</span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-violet text-brand-cyan">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyanText">
                   <ShoppingBag className="h-4 w-4" />
                 </span>
               </div>
@@ -202,7 +202,7 @@ export default function Dashboard() {
             <Card className="flex flex-col justify-between p-6">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Avg order value</span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-violet text-brand-cyan">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyanText">
                   <Receipt className="h-4 w-4" />
                 </span>
               </div>

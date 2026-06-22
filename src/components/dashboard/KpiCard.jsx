@@ -18,7 +18,7 @@ export default function KpiCard({ label, value, sub, delta, goodWhenUp = true, i
       <div className="flex items-start justify-between">
         <span className="text-sm font-medium text-muted-foreground">{label}</span>
         {Icon && (
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-violet text-brand-cyan">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-cyan/10 text-brand-cyanText">
             <Icon className="h-4 w-4" />
           </span>
         )}

@@ -15,10 +15,11 @@
      Red          #EF4444  hsl(0 84% 60%)     — bad / critical / over budget
      Amber        #F59E0B  hsl(38 92% 50%)    — intermediate / needs watching
      Green        #16A34A  hsl(142 76% 36%)   — good / healthy / on track
-   Magenta has been fully retired from the palette. Neon Cyan is too light to
-   pass WCAG AA as small text on white (≈1.75:1) — --cyan-text is a darkened,
-   same-hue stand-in for incidental body text/links; named stat callouts,
-   titles, icons and badges use the raw brand cyan per spec.
+   Magenta has been fully retired from the palette. Neon Cyan #05D7EE is too
+   light to read as text/icons on white or light-grey surfaces (#FFFFFF,
+   #F4F5F7) — anywhere cyan sits on one of those, use --cyan-text (#0891B2)
+   instead. Raw Neon Cyan is reserved for surfaces that are actually dark
+   (the Deep Violet sidebar, dark icon swatches) where it has full contrast.
 --------------------------------------------------------------------------- */
 
 @layer base {
@@ -71,8 +72,8 @@
     /* Brand stops (literal hexes, also in theme.js) — fills/icons/borders only */
     --brand-cyan: 186 96% 48%;
 
-    /* AA-accessible, same-hue stand-in for cyan when it's read as text */
-    --cyan-text: 186 90% 28%;
+    /* Darker cyan #0891B2 — use for any cyan text/icon on a white or light-grey surface */
+    --cyan-text: 192 91% 36%;
   }
 
   * {

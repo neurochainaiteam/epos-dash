@@ -140,16 +140,16 @@ export default function Staff() {
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <Card className="p-6"><div className="text-xs text-muted-foreground">Team size</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{all.length}</div></Card>
-            <Card className="p-6"><div className="text-xs text-muted-foreground">Avg hourly</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{gbp(avgWage, { decimals: 2 })}</div></Card>
-            <Card className="p-6"><div className="text-xs text-muted-foreground">Est. weekly wage bill</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{gbp(weeklyWageBill)}</div></Card>
-            <Card className="p-6"><div className="text-xs text-muted-foreground">Full-time</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{all.filter((s) => s.contract === 'Full-time').length}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Team size</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyanText">{all.length}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Avg hourly</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyanText">{gbp(avgWage, { decimals: 2 })}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Est. weekly wage bill</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyanText">{gbp(weeklyWageBill)}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Full-time</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyanText">{all.filter((s) => s.contract === 'Full-time').length}</div></Card>
           </div>
         )}
 
         {isStaff && (
           <Card className="flex items-center gap-2.5 border-primary/30 p-6 text-sm">
-            <Info className="h-4 w-4 shrink-0 text-brand-cyan" />
+            <Info className="h-4 w-4 shrink-0 text-brand-cyanText" />
             <span>Your shifts are highlighted below. Holidays and time-off show on the rota in colour.</span>
           </Card>
         )}
@@ -157,7 +157,7 @@ export default function Staff() {
         {/* ---- Calendar: week/month rota ---- */}
         <Card className="p-6">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <h2 className="flex items-center gap-2 text-base font-bold text-brand-cyan">
+            <h2 className="flex items-center gap-2 text-base font-bold text-brand-cyanText">
               <CalendarDays className="h-4 w-4" /> Calendar
             </h2>
             <div className="inline-flex rounded-lg border bg-card p-0.5">
@@ -228,7 +228,7 @@ export default function Staff() {
           ) : (
             <div>
               <div className="mb-2 flex items-center gap-1.5 text-xs text-muted-foreground">
-                <CalendarRange className="h-3.5 w-3.5 text-brand-cyan" />
+                <CalendarRange className="h-3.5 w-3.5 text-brand-cyanText" />
                 {today.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })} · staff coverage by weekday pattern
               </div>
               <div className="grid grid-cols-7 gap-1.5">
@@ -263,7 +263,7 @@ export default function Staff() {
         {form && (
           <Card className="border-brand-cyan/30 p-6">
             <div className="mb-3 flex items-center justify-between">
-              <h3 className="flex items-center gap-2 text-sm font-bold text-foreground"><Plane className="h-4 w-4 text-brand-cyan" /> Book time off</h3>
+              <h3 className="flex items-center gap-2 text-sm font-bold text-foreground"><Plane className="h-4 w-4 text-brand-cyanText" /> Book time off</h3>
               <button onClick={() => setForm(null)} className="rounded-md p-1 text-muted-foreground hover:bg-muted/50 hover:text-foreground"><X className="h-4 w-4" /></button>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
@@ -290,7 +290,7 @@ export default function Staff() {
                   const on = form.weekDays.includes(d)
                   return (
                     <button key={d} type="button" onClick={() => setForm({ ...form, weekDays: on ? form.weekDays.filter((x) => x !== d) : [...form.weekDays, d] })}
-                      className={cn('rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors', on ? 'border-brand-cyan/50 bg-brand-cyan/15 text-brand-cyan' : 'border-input text-muted-foreground hover:text-foreground')}>
+                      className={cn('rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors', on ? 'border-brand-cyan/50 bg-brand-cyan/15 text-brand-cyanText' : 'border-input text-muted-foreground hover:text-foreground')}>
                       {d}
                     </button>
                   )
@@ -306,8 +306,8 @@ export default function Staff() {
 
         <Card className="p-6">
           <div className="flex items-center gap-2">
-            <Plane className="h-4 w-4 text-brand-cyan" />
-            <h2 className="text-base font-bold text-brand-cyan">Time off this period</h2>
+            <Plane className="h-4 w-4 text-brand-cyanText" />
+            <h2 className="text-base font-bold text-brand-cyanText">Time off this period</h2>
           </div>
           {loading ? <Skeleton className="mt-3 h-20 w-full" /> : (
             <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
