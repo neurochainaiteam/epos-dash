@@ -54,7 +54,7 @@ export default function Sidebar({ onNavigate, onClose }) {
   return (
     <div className="flex h-full flex-col bg-sidebar">
       {/* Brand */}
-      <div className="flex items-start justify-between px-5 pb-3 pt-2.5">
+      <div className="flex items-start justify-between px-5 pb-6 pt-5">
         <div className="flex items-start gap-2">
           <img src={logoIcon} alt="" className="h-7 w-auto shrink-0" />
           <div>
