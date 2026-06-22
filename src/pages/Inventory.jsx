@@ -18,8 +18,9 @@ import { Skeleton } from '@/components/ui/skeleton'
 function stockState(item) {
   const ratio = item.inStock / item.par
   if (ratio < 0.4) return { label: 'Low', variant: 'destructive', bar: 'bg-destructive' }
-  if (ratio < 0.7) return { label: 'Reorder soon', variant: 'warning', bar: 'bg-warning' }
-  return { label: 'OK', variant: 'success', bar: 'bg-success' }
+  if (ratio < 0.7) return { label: 'Reorder soon', variant: 'destructive', bar: 'bg-destructive' }
+  if (ratio < 0.9) return { label: 'On par', variant: 'warning', bar: 'bg-warning' }
+  return { label: 'Healthy', variant: 'success', bar: 'bg-success' }
 }
 
 function Modal({ title, onClose, children, wide }) {
@@ -345,19 +346,19 @@ export default function Inventory() {
 
         {loading ? (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-4"><Skeleton className="h-12 w-full" /></Card>)}
+            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-6"><Skeleton className="h-12 w-full" /></Card>)}
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Tracked items</div><div className="mt-1 text-xl font-bold tabular-nums">{allItems.length}</div></Card>
-            <Card className="p-4 ring-1 ring-destructive/20"><div className="flex items-center gap-1.5 text-xs text-destructive"><PackageX className="h-3.5 w-3.5" />Low stock</div><div className="mt-1 text-xl font-bold tabular-nums text-destructive">{low.length}</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-warning"><AlertTriangle className="h-3.5 w-3.5" />Reorder soon</div><div className="mt-1 text-xl font-bold tabular-nums">{reorder.length}</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><PackageCheck className="h-3.5 w-3.5" />Stock value</div><div className="mt-1 text-xl font-bold tabular-nums">{gbp(stockValue)}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-brand-cyan"><PackageCheck className="h-3.5 w-3.5" />Tracked items</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{allItems.length}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-destructive"><PackageX className="h-3.5 w-3.5" />Low stock</div><div className="mt-1 text-xl font-bold tabular-nums text-destructive">{low.length}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-destructive"><AlertTriangle className="h-3.5 w-3.5" />Reorder soon</div><div className="mt-1 text-xl font-bold tabular-nums text-destructive">{reorder.length}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-brand-cyan"><PackageCheck className="h-3.5 w-3.5" />Stock value</div><div className="mt-1 text-xl font-bold tabular-nums text-brand-cyan">{gbp(stockValue)}</div></Card>
           </div>
         )}
 
         {needsOrder.length > 0 && (
-          <Card className="flex flex-wrap items-center justify-between gap-3 border-destructive/30 bg-destructive/5 p-4">
+          <Card className="flex flex-wrap items-center justify-between gap-3 border-destructive/30 p-6">
             <div className="flex items-start gap-3">
               <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-destructive" />
               <div className="text-sm">

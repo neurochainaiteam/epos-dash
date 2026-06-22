@@ -7,24 +7,24 @@
 
 /* ---------------------------------------------------------------------------
    NeuroChain Ai — light, clean theme.
-   Brand palette (single source of truth, mirrored in src/config/theme.js):
-     Charcoal         #3A3A3A  hsl(0 0% 23%)
-     Soft Silver      #E1E1E1  hsl(0 0% 88%)
-     Neon Cyan        #05D7EE  hsl(186 96% 48%)
-     Electric Magenta #EF36F5  hsl(298 90% 59%)
-     Deep Violet      #1D014D  hsl(262 97% 15%)
-   Neon Cyan and Electric Magenta are too light to pass WCAG AA as small text on
-   white (≈1.75:1 and ≈3.2:1 respectively). Both literal hexes are kept for
-   fills/icons/borders/chart strokes; --cyan-text is a darkened, same-hue
-   stand-in used anywhere cyan needs to be read as text. --warning already
-   carries the magenta hue and is darkened the same way, so it doubles as the
-   accessible "alert" text/icon colour (see src/config/theme.js CHART note).
+   Brand + status palette (single source of truth, mirrored in src/config/theme.js):
+     Charcoal     #3A3A3A  hsl(0 0% 23%)
+     Soft Silver  #E1E1E1  hsl(0 0% 88%)
+     Neon Cyan    #05D7EE  hsl(186 96% 48%)   — primary accent
+     Deep Violet  #1D014D  hsl(262 97% 15%)   — sidebar / icon-badge surface
+     Red          #EF4444  hsl(0 84% 60%)     — bad / critical / over budget
+     Amber        #F59E0B  hsl(38 92% 50%)    — intermediate / needs watching
+     Green        #16A34A  hsl(142 76% 36%)   — good / healthy / on track
+   Magenta has been fully retired from the palette. Neon Cyan is too light to
+   pass WCAG AA as small text on white (≈1.75:1) — --cyan-text is a darkened,
+   same-hue stand-in for incidental body text/links; named stat callouts,
+   titles, icons and badges use the raw brand cyan per spec.
 --------------------------------------------------------------------------- */
 
 @layer base {
   :root {
-    /* Surfaces — Soft Silver canvas, white cards */
-    --background: 0 0% 88%;
+    /* Surfaces — pale grey canvas, white cards */
+    --background: 220 16% 96%;
     --foreground: 0 0% 23%;
 
     --card: 0 0% 100%;
@@ -45,14 +45,16 @@
     --accent: 186 90% 95%;
     --accent-foreground: 186 90% 28%;
 
-    /* Critical = red · warning = brand magenta (darkened for AA on white) */
-    --destructive: 350 84% 45%;
+    /* Critical = Red #EF4444 */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 152 76% 28%;
+    /* Healthy/on-track = Green #16A34A */
+    --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 298 90% 38%;
+    /* Intermediate/needs watching = Amber #F59E0B */
+    --warning: 38 92% 50%;
     --warning-foreground: 0 0% 100%;
 
     --border: 0 0% 88%;
@@ -68,7 +70,6 @@
 
     /* Brand stops (literal hexes, also in theme.js) — fills/icons/borders only */
     --brand-cyan: 186 96% 48%;
-    --brand-magenta: 298 90% 59%;
 
     /* AA-accessible, same-hue stand-in for cyan when it's read as text */
     --cyan-text: 186 90% 28%;
@@ -95,9 +96,7 @@
     color: hsl(var(--brand-cyan));
   }
 
-  /* flat cyan fill (buttons, active nav, badges, accents) — was a cyan→magenta
-     gradient; removed per the light-theme redesign in favour of a single solid
-     brand colour. */
+  /* flat cyan fill (buttons, active nav, badges, accents) */
   .bg-brand-gradient {
     background-color: hsl(var(--brand-cyan));
   }
@@ -108,9 +107,7 @@
     box-shadow: inset 2px 0 0 0 hsl(var(--brand-cyan));
   }
 
-  /* Recommendation card title — alert/Electric-Magenta hue (darkened --warning
-     for AA contrast on white). No glow: that was a dark-canvas legibility aid,
-     not needed on a white card. */
+  /* Recommendation card title — "things to watch" tone, Amber #F59E0B. */
   .rec-title {
     color: hsl(var(--warning));
   }

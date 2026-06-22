@@ -79,7 +79,7 @@ export default function Checklists() {
         )}
 
         {/* Schedule / recurrence */}
-        <Card className="p-5">
+        <Card className="p-6">
           <CardTitle className="flex items-center gap-2 text-base"><Repeat className="h-4 w-4 text-brand-cyanText" /> Schedule & reminders</CardTitle>
           <p className="mt-1 text-xs text-muted-foreground">Set how often each checklist recurs and when the team is reminded.</p>
           {schLoading ? <Skeleton className="mt-4 h-48 w-full" /> : (

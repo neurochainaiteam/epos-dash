@@ -1,6 +1,7 @@
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Card } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
 /**
  * Headline KPI card. `delta` is a % change vs the prior period.
@@ -13,11 +14,11 @@ export default function KpiCard({ label, value, sub, delta, goodWhenUp = true, i
   const positive = hasDelta ? (goodWhenUp ? up : !up) : null
 
   return (
-    <Card className={cn('p-5', highlight && 'ring-1 ring-primary/30')}>
+    <Card className={cn('p-6', highlight && 'ring-1 ring-primary/30')}>
       <div className="flex items-start justify-between">
         <span className="text-sm font-medium text-muted-foreground">{label}</span>
         {Icon && (
-          <span className={cn('flex h-8 w-8 items-center justify-center rounded-lg', highlight ? 'bg-primary/15 text-brand-cyanText' : 'bg-muted text-muted-foreground')}>
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-violet text-brand-cyan">
             <Icon className="h-4 w-4" />
           </span>
         )}
@@ -25,15 +26,10 @@ export default function KpiCard({ label, value, sub, delta, goodWhenUp = true, i
       <div className="mt-2 text-2xl font-bold tracking-tight text-foreground tabular-nums">{value}</div>
       <div className="mt-1.5 flex items-center gap-2">
         {hasDelta && (
-          <span
-            className={cn(
-              'inline-flex items-center gap-0.5 rounded-full px-1.5 py-0.5 text-xs font-semibold',
-              positive ? 'bg-success/15 text-success' : 'bg-destructive/15 text-destructive',
-            )}
-          >
+          <Badge variant={positive ? 'success' : 'destructive'} className="gap-0.5 rounded-full px-1.5 py-0.5">
             {up ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
             {Math.abs(delta).toFixed(1)}%
-          </span>
+          </Badge>
         )}
         {sub && <span className="text-xs text-muted-foreground">{sub}</span>}
       </div>

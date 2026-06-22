@@ -20,7 +20,7 @@ const PERIODS = [
 function HeroMetric({ label, value, target, hint, icon: Icon, goodBelow = true }) {
   const onTarget = goodBelow ? value <= target : value >= target
   return (
-    <Card className="p-5">
+    <Card className="p-6">
       <div className="flex items-center justify-between">
         <span className="text-sm font-medium text-muted-foreground">{label}</span>
         <span className={cn('flex h-8 w-8 items-center justify-center rounded-lg', onTarget ? 'bg-success/15 text-success' : 'bg-warning/15 text-warning')}>
@@ -97,7 +97,7 @@ export default function PnL() {
         {/* Featured margins */}
         {loading ? (
           <div className="grid gap-4 sm:grid-cols-3">
-            {Array.from({ length: 3 }).map((_, i) => <Card key={i} className="p-5"><Skeleton className="h-20 w-full" /></Card>)}
+            {Array.from({ length: 3 }).map((_, i) => <Card key={i} className="p-6"><Skeleton className="h-20 w-full" /></Card>)}
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-3">

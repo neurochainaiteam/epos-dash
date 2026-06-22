@@ -10,12 +10,11 @@ export const BRAND = {
   charcoal: '#3A3A3A',
   silver: '#E1E1E1',
   cyan: '#05D7EE',
-  magenta: '#EF36F5',
   violet: '#1D014D',
+  red: '#EF4444',
+  amber: '#F59E0B',
+  green: '#16A34A',
 }
-
-// Signature gradient stops, cyan → magenta.
-export const GRADIENT = [BRAND.cyan, BRAND.magenta]
 
 // Colours used inside charts (recharts can't reach CSS vars).
 export const CHART = {
@@ -23,12 +22,12 @@ export const CHART = {
   // Light cyan tint for de-emphasised bars/points within a single-series
   // chart (e.g. non-peak hours) — stays in the cyan family, just lighter.
   cyanSoft: 'hsl(186 70% 85%)',
-  // Neutral grey for a chart's secondary data series. Per the redesign, a
-  // second series only gets magenta when it specifically represents
-  // something alert-worthy — otherwise it should read as neutral, not as a
-  // second "brand" colour competing with cyan.
+  // Neutral grey for a chart's secondary data series — reads as neutral,
+  // not as a second "brand" colour competing with cyan.
   secondary: '#9CA3AF',
-  magenta: BRAND.magenta,
+  red: BRAND.red,
+  amber: BRAND.amber,
+  green: BRAND.green,
   grid: '#E5E7EB',
   axis: '#6B7280',
   cursor: 'hsl(186 80% 50% / 0.12)',

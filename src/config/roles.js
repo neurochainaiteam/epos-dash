@@ -48,21 +48,22 @@ export const PAGES = [
   // Recommendations sits first: it's the sidebar's top item and the default
   // landing page for any role that can see it (Manager/Director). Staff can't
   // access it, so they still land on their first allowed page (Orders).
+  // Forecasting was merged into Recommendations (single "Recommendations"
+  // nav item, no standalone Forecasting page/route).
   { key: 'recommendations', label: 'Recommendations', path: '/recommendations', icon: 'Sparkles', group: 'main' },
-  { key: 'forecasting', label: 'Forecasting', path: '/forecasting', icon: 'LineChart', group: 'main' },
   { key: 'dashboard', label: 'Dashboard', path: '/dashboard', icon: 'LayoutDashboard', group: 'main' },
   { key: 'orders', label: 'Orders', path: '/orders', icon: 'ReceiptText', group: 'main' },
   { key: 'pnl', label: 'P&L', path: '/pnl', icon: 'TrendingUp', group: 'main' },
   { key: 'inventory', label: 'Inventory', path: '/inventory', icon: 'Boxes', group: 'main' },
   { key: 'recipes', label: 'Recipes', path: '/recipes', icon: 'CookingPot', group: 'main' },
   { key: 'waste', label: 'Waste', path: '/waste', icon: 'Trash2', group: 'main' },
-  { key: 'staff', label: 'Staff', path: '/staff', icon: 'Users', group: 'main' },
-  { key: 'schedule', label: 'Schedule', path: '/schedule', icon: 'CalendarDays', group: 'main' },
+  // Schedule was merged into Staff (single "Staff & Schedule" nav item).
+  { key: 'staff', label: 'Staff & Schedule', path: '/staff', icon: 'Users', group: 'main' },
   { key: 'checklists', label: 'Checklists', path: '/checklists', icon: 'ListChecks', group: 'main' },
   { key: 'bookings', label: 'Bookings', path: '/bookings', icon: 'BookMarked', group: 'main' },
   { key: 'analytics', label: 'Analytics', path: '/analytics', icon: 'BarChart3', group: 'main' },
   { key: 'marketing', label: 'Marketing', path: '/marketing', icon: 'MessageSquare', group: 'main' },
-  { key: 'expenses', label: 'Expenses', path: '/expenses', icon: 'Wallet', group: 'admin' },
+  { key: 'expenses', label: 'Expenses', path: '/expenses', icon: 'Wallet', group: 'main' },
   { key: 'billing', label: 'Billing & Plans', path: '/billing', icon: 'CreditCard', group: 'admin' },
   { key: 'integrations', label: 'Integrations', path: '/integrations', icon: 'Plug', group: 'admin' },
   { key: 'permissions', label: 'User Permissions', path: '/permissions', icon: 'ShieldCheck', group: 'admin' },
@@ -71,15 +72,14 @@ export const PAGES = [
 
 // ---- DEFAULT permission matrix --------------------------------------------
 // Cumulative tiers:
-//   Staff   = orders, schedule, opening/closing checklists.
+//   Staff   = orders, staff & schedule, opening/closing checklists.
 //   Manager = Staff + full single-site operations (waste + inventory + the rest).
 //   Director = everything: full financials, multi-site reporting, billing,
 //              expenses, integrations, settings and the permissions screen.
-const STAFF_PAGES = ['orders', 'schedule', 'checklists']
+const STAFF_PAGES = ['orders', 'staff', 'checklists']
 
 const MANAGER_PAGES = [
   'recommendations',
-  'forecasting',
   'dashboard',
   'orders',
   'pnl',
@@ -87,7 +87,6 @@ const MANAGER_PAGES = [
   'recipes',
   'waste',
   'staff',
-  'schedule',
   'checklists',
   'bookings',
   'analytics',
@@ -109,7 +108,7 @@ export const EDITABLE_ROLES = [ROLES.STAFF, ROLES.MANAGER]
 // Pages a role may NEVER be granted, even by an override (keeps the demo's tier
 // story coherent — e.g. Staff can't be handed company billing).
 const ROLE_MAX = {
-  [ROLES.STAFF]: ['recommendations', 'forecasting', 'dashboard', 'orders', 'pnl', 'inventory', 'recipes', 'waste', 'staff', 'schedule', 'checklists', 'bookings', 'analytics', 'marketing'],
+  [ROLES.STAFF]: ['recommendations', 'dashboard', 'orders', 'pnl', 'inventory', 'recipes', 'waste', 'staff', 'checklists', 'bookings', 'analytics', 'marketing'],
   [ROLES.MANAGER]: MANAGER_PAGES,
   [ROLES.DIRECTOR]: DIRECTOR_PAGES,
 }

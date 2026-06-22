@@ -51,7 +51,6 @@ export default {
           charcoal: '#3A3A3A',
           silver: '#E1E1E1',
           cyan: '#05D7EE',
-          magenta: '#EF36F5',
           violet: '#1D014D',
           // AA-accessible, same-hue stand-in for cyan when read as text on
           // light surfaces (raw cyan is ~1.75:1 on white — fails AA's 4.5:1)
@@ -59,7 +58,7 @@ export default {
         },
       },
       boxShadow: {
-        card: '0 2px 8px rgba(0,0,0,0.06)',
+        card: '0 4px 16px rgba(0,0,0,0.08)',
         'glow-cyan': '0 0 0 1px rgba(5,215,238,0.3), 0 8px 30px -8px rgba(5,215,238,0.45)',
       },
       borderRadius: {

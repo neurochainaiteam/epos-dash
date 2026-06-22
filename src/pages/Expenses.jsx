@@ -15,7 +15,7 @@ import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@
 const TODAY_LABEL = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
 const BLANK = { id: null, date: TODAY_LABEL, category: 'Rent', vendor: '', amount: '', note: '' }
 
-// Plain categorical swatches — kept off the warning/magenta hue, which is
+// Plain categorical swatches — kept off the warning/amber hue, which is
 // reserved for things that actually need attention, not routine category
 // legends.
 const CAT_TONE = {
@@ -80,19 +80,19 @@ export default function Expenses() {
 
         {loading ? (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-4"><Skeleton className="h-12 w-full" /></Card>)}
+            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-6"><Skeleton className="h-12 w-full" /></Card>)}
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Entries</div><div className="mt-1 text-xl font-bold tabular-nums">{rows.length}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Logged this period</div><div className="mt-1 text-xl font-bold tabular-nums">{gbp(total)}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Top category</div><div className="mt-1 text-base font-bold">{byCategory[0]?.category ?? 'N/A'}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Location</div><div className="mt-1 text-base font-bold truncate">{locationName(locationId)}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Entries</div><div className="mt-1 text-xl font-bold tabular-nums">{rows.length}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Logged this period</div><div className="mt-1 text-xl font-bold tabular-nums">{gbp(total)}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Top category</div><div className="mt-1 text-base font-bold">{byCategory[0]?.category ?? 'N/A'}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Location</div><div className="mt-1 text-base font-bold truncate">{locationName(locationId)}</div></Card>
           </div>
         )}
 
         {form && (
-          <Card className="border-brand-cyan/30 p-5">
+          <Card className="border-brand-cyan/30 p-6">
             <div className="mb-3 flex items-center justify-between">
               <h3 className="text-sm font-bold text-foreground">{form.id ? 'Edit expense' : 'New expense'}</h3>
               <button onClick={() => setForm(null)} className="rounded-md p-1 text-muted-foreground hover:bg-muted/50 hover:text-foreground"><X className="h-4 w-4" /></button>
@@ -129,7 +129,7 @@ export default function Expenses() {
         )}
 
         <div className="grid gap-4 lg:grid-cols-3">
-          <Card className="p-5">
+          <Card className="p-6">
             <CardTitle className="text-base">By category</CardTitle>
             {loading ? <Skeleton className="mt-4 h-40 w-full" /> : (
               <div className="mt-4 space-y-3">

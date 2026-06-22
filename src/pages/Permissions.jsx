@@ -46,7 +46,7 @@ export default function Permissions() {
           {ROLE_ORDER.map((r) => {
             const count = PAGES.filter((p) => canAccessAs(r, p.key)).length
             return (
-              <Card key={r} className="p-4">
+              <Card key={r} className="p-6">
                 <div className="flex items-center justify-between">
                   <div className="text-sm font-bold text-foreground">{ROLE_META[r].label}</div>
                   {!EDITABLE_ROLES.includes(r) && <Lock className="h-3.5 w-3.5 text-muted-foreground" />}

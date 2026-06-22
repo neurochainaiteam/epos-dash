@@ -89,7 +89,7 @@ export default function Integrations() {
         )}
 
         {/* Channel mix */}
-        <Card className="p-5">
+        <Card className="p-6">
           <CardTitle className="text-base">Today's order mix by channel</CardTitle>
           <p className="text-xs text-muted-foreground">Live split of the order feed across in-store and delivery platforms</p>
           {chanLoading ? (

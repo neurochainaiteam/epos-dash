@@ -14,12 +14,10 @@ const Inventory = lazy(() => import('@/pages/Inventory'))
 const Recipes = lazy(() => import('@/pages/Recipes'))
 const Waste = lazy(() => import('@/pages/Waste'))
 const Staff = lazy(() => import('@/pages/Staff'))
-const Schedule = lazy(() => import('@/pages/Schedule'))
 const Checklists = lazy(() => import('@/pages/Checklists'))
 const Bookings = lazy(() => import('@/pages/Bookings'))
 const Analytics = lazy(() => import('@/pages/Analytics'))
 const Recommendations = lazy(() => import('@/pages/Recommendations'))
-const Forecasting = lazy(() => import('@/pages/Forecasting'))
 const Marketing = lazy(() => import('@/pages/Marketing'))
 const Billing = lazy(() => import('@/pages/Billing'))
 const Expenses = lazy(() => import('@/pages/Expenses'))
@@ -36,12 +34,10 @@ const PROTECTED = [
   ['recipes', Recipes],
   ['waste', Waste],
   ['staff', Staff],
-  ['schedule', Schedule],
   ['checklists', Checklists],
   ['bookings', Bookings],
   ['analytics', Analytics],
   ['recommendations', Recommendations],
-  ['forecasting', Forecasting],
   ['marketing', Marketing],
   ['billing', Billing],
   ['expenses', Expenses],

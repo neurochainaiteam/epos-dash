@@ -118,19 +118,19 @@ export default function Marketing() {
 
         {loading ? (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-4"><Skeleton className="h-12 w-full" /></Card>)}
+            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-6"><Skeleton className="h-12 w-full" /></Card>)}
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Megaphone className="h-3.5 w-3.5 text-brand-cyanText" />Campaigns</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.campaigns}</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Send className="h-3.5 w-3.5 text-brand-cyanText" />SMS sent</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.sent.toLocaleString()}</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Eye className="h-3.5 w-3.5 text-brand-cyanText" />Avg open rate</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.openRate}%</div></Card>
-            <Card className="p-4"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><BadgePercent className="h-3.5 w-3.5 text-success" />Redeemed</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.redeemed.toLocaleString()}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Megaphone className="h-3.5 w-3.5 text-brand-cyanText" />Campaigns</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.campaigns}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Send className="h-3.5 w-3.5 text-brand-cyanText" />SMS sent</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.sent.toLocaleString()}</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><Eye className="h-3.5 w-3.5 text-brand-cyanText" />Avg open rate</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.openRate}%</div></Card>
+            <Card className="p-6"><div className="flex items-center gap-1.5 text-xs text-muted-foreground"><BadgePercent className="h-3.5 w-3.5 text-success" />Redeemed</div><div className="mt-1 text-xl font-bold tabular-nums">{stats.redeemed.toLocaleString()}</div></Card>
           </div>
         )}
 
         {compose && (
-          <Card className="border-brand-cyan/30 p-5">
+          <Card className="border-brand-cyan/30 p-6">
             <div className="mb-3 flex items-center justify-between">
               <h3 className="flex items-center gap-2 text-sm font-bold text-foreground"><MessageSquare className="h-4 w-4 text-brand-cyanText" /> New SMS campaign</h3>
               <button onClick={() => setCompose(null)} className="rounded-md p-1 text-muted-foreground hover:bg-muted/50 hover:text-foreground"><X className="h-4 w-4" /></button>
@@ -161,9 +161,9 @@ export default function Marketing() {
         <div className="grid gap-4 lg:grid-cols-3">
           <div className="space-y-3 lg:col-span-2">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Campaigns</h2>
-            {campLoading ? Array.from({ length: 3 }).map((_, i) => <Card key={i} className="p-4"><Skeleton className="h-24 w-full" /></Card>) : (
+            {campLoading ? Array.from({ length: 3 }).map((_, i) => <Card key={i} className="p-6"><Skeleton className="h-24 w-full" /></Card>) : (
               allCampaigns.map((c) => (
-                <Card key={c.id} className="p-4">
+                <Card key={c.id} className="p-6">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-foreground">{c.name}</span>

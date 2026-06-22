@@ -171,7 +171,7 @@ export default function Analytics() {
           </div>
         )}
 
-        <Card className="flex flex-wrap items-center justify-between gap-3 border-brand-cyan/20 p-4">
+        <Card className="flex flex-wrap items-center justify-between gap-3 border-brand-cyan/20 p-6">
           <div className="flex items-center gap-2 text-sm">
             <Calendar className="h-4 w-4 text-brand-cyanText" />
             <span className="text-muted-foreground">Showing</span>
@@ -185,14 +185,14 @@ export default function Analytics() {
 
         {loading ? (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-4"><Skeleton className="h-12 w-full" /></Card>)}
+            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-6"><Skeleton className="h-12 w-full" /></Card>)}
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Peak hour</div><div className="mt-1 text-xl font-bold">{peakHour.hour}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Best day</div><div className="mt-1 text-xl font-bold">{bestDay.day} · {gbp(bestDay.revenue)}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Top seller</div><div className="mt-1 truncate text-base font-bold">{bestSellers[0]?.name ?? 'N/A'}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Avg labour %</div><div className="mt-1 text-xl font-bold tabular-nums">{pct(avgLabourPct)}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Peak hour</div><div className="mt-1 text-xl font-bold">{peakHour.hour}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Best day</div><div className="mt-1 text-xl font-bold">{bestDay.day} · {gbp(bestDay.revenue)}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Top seller</div><div className="mt-1 truncate text-base font-bold">{bestSellers[0]?.name ?? 'N/A'}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Avg labour %</div><div className="mt-1 text-xl font-bold tabular-nums">{pct(avgLabourPct)}</div></Card>
           </div>
         )}
 
@@ -206,7 +206,7 @@ export default function Analytics() {
           </Suspense>
         )}
 
-        <Card className="p-5 sm:p-6">
+        <Card className="p-6">
           <div className="flex items-center gap-2">
             <Trash2 className="h-4 w-4 text-brand-cyanText" />
             <h2 className="text-base font-bold text-foreground">Waste cost by menu item</h2>

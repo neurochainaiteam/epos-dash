@@ -80,7 +80,7 @@ export default function Orders() {
       <PageHeader title="Orders" description="EPOS order feed">
         {isStaff && (
           <Badge variant="secondary" className="gap-1.5">
-            <Eye className="h-3.5 w-3.5" /> View only
+            <Eye className="h-3.5 w-3.5 text-brand-cyan" /> View only
           </Badge>
         )}
       </PageHeader>
@@ -125,7 +125,7 @@ export default function Orders() {
             </select>
           </div>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-cyan" />
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -138,14 +138,14 @@ export default function Orders() {
         {/* Summary strip */}
         {loading ? (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-4"><Skeleton className="h-12 w-full" /></Card>)}
+            {Array.from({ length: 4 }).map((_, i) => <Card key={i} className="p-6"><Skeleton className="h-12 w-full" /></Card>)}
           </div>
         ) : (
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Orders shown</div><div className="mt-1 text-xl font-bold tabular-nums">{summary.count}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Total value</div><div className="mt-1 text-xl font-bold tabular-nums">{gbp(summary.total, { decimals: 2 })}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Avg order</div><div className="mt-1 text-xl font-bold tabular-nums">{gbp(summary.avg, { decimals: 2 })}</div></Card>
-            <Card className="p-4"><div className="text-xs text-muted-foreground">Card share</div><div className="mt-1 text-xl font-bold tabular-nums">{summary.cardShare}%</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Orders shown</div><div className="mt-1 text-xl font-bold tabular-nums">{summary.count}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Total value</div><div className="mt-1 text-xl font-bold tabular-nums">{gbp(summary.total, { decimals: 2 })}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Avg order</div><div className="mt-1 text-xl font-bold tabular-nums">{gbp(summary.avg, { decimals: 2 })}</div></Card>
+            <Card className="p-6"><div className="text-xs text-muted-foreground">Card share</div><div className="mt-1 text-xl font-bold tabular-nums">{summary.cardShare}%</div></Card>
           </div>
         )}
 
@@ -178,7 +178,7 @@ export default function Orders() {
                       <td className="px-4 text-center tabular-nums">{o.qty}</td>
                       <td className="px-4">
                         <span className="inline-flex items-center gap-1.5 text-sm">
-                          {o.payment === 'Card' ? <CreditCard className="h-3.5 w-3.5 text-muted-foreground" /> : <Banknote className="h-3.5 w-3.5 text-muted-foreground" />}
+                          {o.payment === 'Card' ? <CreditCard className="h-3.5 w-3.5 text-brand-cyan" /> : <Banknote className="h-3.5 w-3.5 text-brand-cyan" />}
                           {o.payment}
                         </span>
                       </td>

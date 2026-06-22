@@ -53,10 +53,10 @@ export default function Sidebar({ onNavigate, onClose }) {
   return (
     <div className="flex h-full flex-col bg-sidebar">
       {/* Brand */}
-      <div className="flex items-start justify-between px-5 pb-3 pt-5">
+      <div className="flex items-start justify-between px-5 pb-3 pt-2.5">
         <div>
           <img src={logoFull} alt="NeuroChain Ai" className="max-w-[120px]" />
-          <div className="mt-1.5 text-[11px] font-light text-white">Operations &amp; P&amp;L</div>
+          <div className="mt-0.5 text-[11px] font-light text-white">Operations &amp; P&amp;L</div>
         </div>
         {onClose && (
           <button

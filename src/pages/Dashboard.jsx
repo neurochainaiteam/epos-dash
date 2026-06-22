@@ -106,7 +106,7 @@ export default function Dashboard() {
         {/* P&L summary cards */}
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
           {loading ? Array.from({ length: 5 }).map((_, i) => (
-            <Card key={i} className="p-5"><Skeleton className="h-16 w-full" /></Card>
+            <Card key={i} className="p-6"><Skeleton className="h-16 w-full" /></Card>
           )) : (<>
             <KpiCard label="Revenue (today)" value={gbp(kpis?.revenue ?? 0)} delta={deltas.revenue.value} icon={PoundSterling} highlight sub="vs yesterday" />
             <KpiCard label="COGS" value={gbp(kpis?.cogs ?? 0)} delta={deltas.cogs.value} goodWhenUp={false} icon={Receipt} sub={pct(metrics?.foodCostPct ?? 0) + ' of rev'} />
@@ -189,20 +189,20 @@ export default function Dashboard() {
           </Card>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            <Card className="flex flex-col justify-between p-5">
+            <Card className="flex flex-col justify-between p-6">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Orders today</span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/15 text-brand-cyanText">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-violet text-brand-cyan">
                   <ShoppingBag className="h-4 w-4" />
                 </span>
               </div>
               <div className="mt-3 text-3xl font-bold tabular-nums">{loading ? '…' : (kpis?.order_count ?? 0)}</div>
               <p className="mt-1 text-xs text-muted-foreground">Across all dayparts</p>
             </Card>
-            <Card className="flex flex-col justify-between p-5">
+            <Card className="flex flex-col justify-between p-6">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted-foreground">Avg order value</span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted text-muted-foreground">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-violet text-brand-cyan">
                   <Receipt className="h-4 w-4" />
                 </span>
               </div>
