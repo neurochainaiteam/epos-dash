@@ -11,7 +11,7 @@ const badgeVariants = cva(
         outline: 'text-foreground',
         // Global status pill style: exact hex pairs, not opacity tints.
         success: 'border-transparent bg-[#DCFCE7] text-success',
-        warning: 'border-transparent bg-[#F59E0B] text-[#92400E]',
+        warning: 'border-transparent bg-[#FEF3C7] text-[#92400E]',
         destructive: 'border-transparent bg-[#FEE2E2] text-destructive',
         // Cyan pill — primary accent (e.g. "All locations", insight counts).
         accent: 'border-transparent bg-[#ECFEFF] text-brand-cyanText',
